@@ -3,7 +3,7 @@ body{
     font-family:Arial, Helvetica, sans-serif;
 }
 
-.login__container, .novo__cliente{
+.login__container, .novo__cliente, .esqueceu__senha-container{
     background-color: #ffffff;
     max-width: 600px;
     margin: 80px auto;
@@ -22,7 +22,7 @@ body{
     outline: none;
 }
 
-.login__container form .button_cliente, .button_clien a{
+.login__container form .button_cliente, .button_clien a, .button__esqueceu-senha a{
     text-decoration: none;
     color: #fff;
     font-weight: 600;
@@ -35,7 +35,7 @@ body{
 
 }
 
-.login__container form .button_cliente:hover, .button_clien a:hover{
+.login__container form .button_cliente:hover, .button_clien a:hover, .button__esqueceu-senha a:hover{
     background-color: transparent;
     border: 1px solid #56C033;
     color: #569641;
@@ -62,7 +62,7 @@ body{
     flex-direction: column;
 }
 
-.login_conteudo h1, .cliente h1{
+.login_conteudo h1, .cliente h1, .senha__container-titulo h1{
     text-align: center;
     font-size: 40px;
     padding-top: 20px;
@@ -102,7 +102,7 @@ body{
      color: #2E332C;
 }
 
-.cadastre__se-conteudo p{
+.cadastre__se-conteudo p, .senha__container-titulo p{
     text-align: center;
     margin: 20px 0;
  }
@@ -144,4 +144,27 @@ body{
         border: 1px solid #56C033;
         color: #569641;
     }
+ }
+
+ /*configuração sobre Esqueceu senha*/
+
+ .esqueceu__senha-container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+
+ .esqueceu__senha-container form label{
+    padding: 8px 0;
+ }
+
+ .esqueceu__senha-container form input{
+    width: 500px;
+    height: 40px;
+    padding: 5px;
+    outline: none;
+ }
+
+ .button__esqueceu-senha{
+    margin: 30px auto;
  }

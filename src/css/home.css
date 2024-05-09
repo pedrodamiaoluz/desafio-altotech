@@ -24,6 +24,11 @@ body{
     margin: 0 auto;
 }
 
+section{
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
 /*Configurações do cobeçalho*/
 
 header > .container{
@@ -32,7 +37,7 @@ header > .container{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 0 5px #000;
+    box-shadow: 0 0 8px #bdbcbc;
 }
 
 .header__logo img{
@@ -104,17 +109,18 @@ header > .container{
 
 .titulo{
     color: #000;
-    margin: 5rem 0 1rem 17rem;
+    margin: 8rem 0 2rem 2%;
 }
 
 .categoria__container ul{
     background-color: transparent;
-    display: grid;
-    grid-template-columns: 300px 300px 300px;
-    grid-template-rows: 1fr 1fr 1fr;
-    justify-content: center;
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 2%;
     align-items: center;
+    gap: 18px;
+   
+
 }
 
 .categoria__container li{
@@ -123,7 +129,9 @@ header > .container{
     width: 200px;
     border-radius: 10px;
     box-shadow: 0 0 7px #bdbcbc;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 .categoria__container ul li a{
@@ -132,6 +140,7 @@ header > .container{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     span{
         padding: 0.7rem 0;
@@ -147,3 +156,57 @@ header > .container{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+
+/*Configurações do rodapé*/
+
+.footer__container{
+    background-color:#4B6B40;
+    margin-top: 80px;
+    padding: 20px 5%;
+    display: flex;
+}
+.footer__logo{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+    color: #fff;
+
+    p{
+        background-color: transparent;
+        width: 45vw;
+        text-align: justify;
+        font-size: 14px;
+    }
+
+    span{
+        font-size: 14px;
+    }
+}
+
+.footer__logo img{
+    width: 150px;
+    height: 100px;
+}
+
+.recursos-titulo, .prod-titulo{
+    margin: 30px 0 13px 0;
+}
+
+.footer__recursos, .footer__prod-popular{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.footer__recursos a, .footer__prod-popular a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 0;
+}
+
+.footer__recursos a:hover, .footer__prod-popular a:hover{
+    color: #4EEA18;
+}
+
