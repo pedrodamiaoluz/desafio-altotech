@@ -52,11 +52,6 @@ header > .container{
     transition: .2s;
 }
 
-.header__navegacao ul li:hover{
-    box-shadow: 0 3px 0 #569641;
-    border-radius: 5px;
-}
-
 .header__navegacao ul li a{
     text-decoration: none;
     color: #000;
@@ -64,6 +59,9 @@ header > .container{
     display: inline-block;
 }
 
+.header__navegacao ul li a:hover{
+    box-shadow: 0 3px 0 #569641;
+}
 
 .input__pesquisa{
     background-color: #d1cdcd54;
@@ -333,3 +331,19 @@ header > .container{
     text-align: justify;
 }
 
+/*Configurações sobre as marcas favoritas*/
+
+.marca__favorita-container h1{
+    margin: 50px 0;
+}
+
+.marcas_links{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.marcas_links a img{
+    width: 200px;
+    height: 150px;
+}
