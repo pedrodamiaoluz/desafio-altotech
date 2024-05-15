@@ -99,3 +99,68 @@
     border-top-right-radius: 10px;
     object-fit:cover;
 }
+
+
+/*Configuração sober compre o seu produto*/
+
+.compre_produto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2{
+      margin: 30px 0 50px 0;
+      font-size: 18px;
+      font-weight: bold; 
+    }
+}
+
+.compre_produto-links{
+    background-color: transparent;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+}
+
+.compre_produto-links details summary{
+    color: #000;
+    cursor: pointer;
+}
+
+.compre_produto-links details summary a{
+    text-decoration: none;
+    color: #2E332C;
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+.compre_produto-links details ul{
+    list-style-type: none;
+    padding: 20px 0 5px 50px;
+    font-size: 15px;
+}
+
+.compre_produto-links details ul li{
+    padding: 5px 0;
+}
+
+.compre_produto-links details ul li a{
+    text-decoration: none;
+    color: #000;
+}
+
+.compre_produto-links details ul li a:hover{
+    color: #569641;
+}
+
+/*configuraça do leude compra meu produto*/
+
+.compre__container{
+    display: flex;
+    justify-content: start;
+    gap: 90px;
+}
