@@ -138,6 +138,11 @@
     padding-left: 20px;
 }
 
+.compre_produto-links details summary .lanche_style{
+    color: #56C033;
+    font-weight: 600;
+}
+
 .compre_produto-links details ul{
     list-style-type: none;
     padding: 20px 0 5px 50px;
@@ -159,8 +164,135 @@
 
 /*configuraça do leude compra meu produto*/
 
+.leaude_contaeiner{
+    background-color: red;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.leaude_conteudo{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h1{
+        font-size: 40px;
+    }
+}
+
+.leaude_conteudo p{
+    width: 600px;
+    text-align: justify;
+}
+
+.leaude_conteudo span a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .compre__container{
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 90px;
+}
+
+
+.produtos_titulo{
+    margin: 40px 0 30px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.produtos_titulo span{
+    display: flex;
+    align-items: center;
+}
+
+.produtos_titulo span a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 400;
+}
+
+.produtos_titulo span a:hover{
+    color: #569641;
+}
+
+.compre__produto-liste ul{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.compre__produto-liste ul li{
+    background-color: #fff;
+    width: 220px;
+    box-shadow: 0 0 7px #bdbcbc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+
+    p{
+        color: #2E332C;
+        margin: 20px 0;
+    }
+}
+
+.compre__produto-liste ul li img{
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.compre__produto-liste ul li a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button_produto{
+    text-decoration: none;
+    background-color: #4EEA18;
+    padding: 10px 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.button_produto a{
+    color: #2E332C;
+    font-weight: 600;
+}
+
+.preco_quantidade{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.lisye_quantidade{
+    border: 1px solid #4EEA18;
+    cursor: pointer;
+    text-align: center;
+}
+
+.preco_quantidade span input{
+    width: 40px;
+    height: 20px;
+    padding: 5px;
+    border-left: 1px solid #4EEA18;
+    border-right:  1px solid #4EEA18;
+    border-bottom:none;
+    border-top: none;
+    outline: none;
 }
