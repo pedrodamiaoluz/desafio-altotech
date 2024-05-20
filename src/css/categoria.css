@@ -168,7 +168,9 @@
     background-color: red;
     padding: 20px 0;
     margin-top: 20px;
+  
 }
+
 
 .leaude_conteudo{
     color: #fff;
@@ -287,6 +289,138 @@
 }
 
 .preco_quantidade span input{
+    width: 40px;
+    height: 20px;
+    padding: 5px;
+    border-left: 1px solid #4EEA18;
+    border-right:  1px solid #4EEA18;
+    border-bottom:none;
+    border-top: none;
+    outline: none;
+}
+
+/*Cofiguração sobre a categoria leaude__naocontemglutem-contaeiner*/
+
+.compre__conteudo-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.leaude__categoria-contaeiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.leaude__categoria-conteudo{
+    background-color: #4b6b40a8;
+    padding: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 20px 50px 20px 0;
+    font-size: 12px;
+    color: #000;
+
+    h1{
+        font-size: 40px;
+        font-weight: 400;
+        margin: 20px 0;
+    }
+
+    p{
+        text-align: justify;
+        font-size: 15px;
+        color: #000000af;
+    }
+}
+
+.leaude__categoria-conteudo span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+}
+
+.leaude__categoria-conteudo span a{
+    text-decoration: none;
+    color: #000;
+}
+
+.leaude__categoria-conteudo span a:hover{
+    color: #4EEA18;
+}
+
+.compre_produto-links{
+    margin-top: 70px;
+}
+
+.compre_produto-links details summary a:hover{
+    color: #569641;
+}
+
+.leuade__produto-categoria ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.leuade__produto-categoria ul li{
+    background-color: #fff;
+    width: 263px;
+    box-shadow: 0 0 7px #bdbcbc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+
+    p{
+        color: #2E332C;
+        margin: 20px 0;
+    }
+}
+
+.leuade__produto-categoria ul li img{
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.leuade__produto-categoria ul li a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button__leaude-produto{
+    text-decoration: none;
+    background-color: #4EEA18;
+    padding: 10px 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.button__leaude-produto a{
+    color: #2E332C;
+    font-weight: 600;
+}
+
+.leuade__produto-preco{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.leaude__quantidade{
+    border: 1px solid #4EEA18;
+    cursor: pointer;
+    text-align: center;
+}
+
+.leuade__produto-preco span input{
     width: 40px;
     height: 20px;
     padding: 5px;
