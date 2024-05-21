@@ -327,16 +327,18 @@
         font-size: 40px;
         font-weight: 400;
         margin: 20px 0;
+        color: #2E332C;
     }
 
     p{
         text-align: justify;
         font-size: 15px;
-        color: #000000af;
+        color: #354132;
     }
 }
 
 .leaude__categoria-conteudo span{
+    color: #2E332C;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -345,20 +347,44 @@
 
 .leaude__categoria-conteudo span a{
     text-decoration: none;
-    color: #000;
+    color: #2E332C;
 }
 
 .leaude__categoria-conteudo span a:hover{
-    color: #4EEA18;
+    color:#fff;
 }
 
-.compre_produto-links{
+.compre_produto-links > .produto-links{
     margin-top: 70px;
 }
+
+/* .compre_produto-links > .categoria{
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 300px;
+} */
 
 .compre_produto-links details summary a:hover{
     color: #569641;
 }
+
+.compre_produto-links ul li > .lista__link{
+    display: flex;
+    gap: 10px;
+
+    input{
+        cursor: pointer;
+    }
+}
+
+.compre_produto-links ul li .lista__link:hover{
+    color: #000;
+}
+
+
 
 .leuade__produto-categoria ul{
     display: flex;
