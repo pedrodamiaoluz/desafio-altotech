@@ -145,7 +145,7 @@
 
 .compre_produto-links details ul{
     list-style-type: none;
-    padding: 20px 0 5px 50px;
+    padding: 20px 0 5px 30px;
     font-size: 15px;
 }
 
@@ -371,20 +371,46 @@
     color: #569641;
 }
 
+.compre_produto-links .categoria__lista-link{
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    height: 50vh;
+}
+
+.categoria__lista-link::-webkit-scrollbar{
+    width: 8px;
+}
+
+.categoria__lista-link::-webkit-scrollbar-thumb{
+    background-color: #0000003f;
+    width: 8px;
+    border-radius: 20px;
+}
+
+.categoria__lista-link li a span:hover{
+    color: #569641;
+}
+
+
 .compre_produto-links ul li > .lista__link{
     display: flex;
+    align-items: center;
     gap: 10px;
 
     input{
         cursor: pointer;
     }
+
+    span{
+        font-size: 13px;
+    }
 }
+
+.lista__link > 
 
 .compre_produto-links ul li .lista__link:hover{
     color: #000;
 }
-
-
 
 .leuade__produto-categoria ul{
     display: flex;
