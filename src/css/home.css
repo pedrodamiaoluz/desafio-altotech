@@ -110,6 +110,8 @@ header > .container{
     color: #000;
 }
 
+
+
 /*Configurações sobre as Categorias*/
 
 .titulo{
@@ -132,6 +134,21 @@ header > .container{
    
 
 }
+
+/* .categoria__container ul::-webkit-scrollbar{
+    width: 5px;
+}
+
+.categoria__container ul::-webkit-scrollbar-thumb{
+    background-color: #0000003f;
+    width: 5px;
+
+} */
+
+/* .categoria__container ul::-webkit-scrollbar-button{
+  background-color: red;
+   width: 10px;
+} */
 
 .categoria__container li{
     background-color: #fff;
