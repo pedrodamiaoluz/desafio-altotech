@@ -138,7 +138,7 @@
     padding-left: 20px;
 }
 
-.compre_produto-links details summary .lanche_style, .compre_produto-links details summary .chocolated_style, .compre_produto-links details summary .chocolated_style, .compre_produto-links details summary .queijoovoslaticinos__style, .compre_produto-links details summary .carnefrutosmar_style, .compre_produto-links details summary .produtoanimaiscompanhia_style, .compre_produto-links details summary .produtopanificacao_style, .compre_produto-links details summary .fundamentosdespensa_style{
+.compre_produto-links details summary .lanche_style, .compre_produto-links details summary .chocolated_style, .compre_produto-links details summary .chocolated_style, .compre_produto-links details summary .queijoovoslaticinos__style, .compre_produto-links details summary .carnefrutosmar_style, .compre_produto-links details summary .produtoanimaiscompanhia_style, .compre_produto-links details summary .produtopanificacao_style, .compre_produto-links details summary .fundamentosdespensa_style, .compre_produto-links details summary .produtosdepanificação_style, .compre_produto-links details summary .fundamentosdadespensa_style{
     color: #56C033;
     font-weight: 600;
 }
@@ -165,7 +165,7 @@
 /*configuraça do leude compra meu produto*/
 
 .leaude_contaeiner{
-    background-color: red;
+    background-color: rgba(255, 136, 0, 0.733);
     padding: 20px 0;
     margin-top: 20px;
   
