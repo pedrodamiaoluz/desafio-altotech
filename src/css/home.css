@@ -202,7 +202,7 @@ header > .container{
 
     p{
         background-color: transparent;
-        width: 45vw;
+        width: 600px;
         text-align: justify;
         font-size: 14px;
     }
@@ -339,6 +339,8 @@ header > .container{
 /*Configurações sobre por que se tornar veganos*/
 
 .tornar__vegano_container{
+    background-color: #fff;
+    width: 1150px;
     margin: 100px 0;
     display: flex;
     justify-content: space-around;
@@ -346,8 +348,13 @@ header > .container{
 }
 
 .tornar__vegano_container img{
-    width: 100%;
-    height: 100%;
+    width: 550px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.tornar__veg-conteudo{
+    width: 500px;
 }
 
 .tornar__veg-conteudo p{
