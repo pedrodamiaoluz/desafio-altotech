@@ -90,6 +90,7 @@
         color: #000;
         font-weight: 500;
     }
+
 }
 
 .categoria ul li a img{
@@ -168,7 +169,19 @@
     background-color: rgba(255, 136, 0, 0.733);
     padding: 20px 0;
     margin-top: 20px;
-  
+}
+
+.compre_por_categoria-leaude{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.leaude_img img{
+    width: 550px;
+    height: 200px;
+    object-fit: fill;
 }
 
 .leaude_conteudo{
@@ -244,15 +257,15 @@
 
     p{
         color: #2E332C;
-        margin: 20px 0;
+        margin: 20px 20px;
     }
 }
 
 .compre__produto-liste ul li img{
-    margin-top: 20px;
+    margin: 20px 0;
     width: 150px;
     height: 150px;
-    object-fit: cover;
+    object-fit:cover;
 }
 
 .compre__produto-liste ul li a{
