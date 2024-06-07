@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     # meus apps
     'usuarios',
+    'produtos',
 
     # rest framework
     'rest_framework',

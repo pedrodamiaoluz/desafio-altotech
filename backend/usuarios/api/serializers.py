@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, get_user_model
 from django.core.exceptions import ValidationError
 from rest_framework import serializers
+from produtos.models import Carrinho
 
 user_model = get_user_model()
 
@@ -32,7 +33,9 @@ class UserSerializer(serializers.ModelSerializer):
         }
 
     def create(self, validated_data):
-        return user_model.objects.create_user(**validated_data)
+        user = user_model.objects.create_user(**validated_data)
+        Carrinho.objects.create(proprietario=user)
+        return user
 
 
 class UserChangeSerializer(serializers.ModelSerializer):
