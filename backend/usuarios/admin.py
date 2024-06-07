@@ -9,9 +9,6 @@ user_model = get_user_model()
 
 
 class CustomUserAdmin(UserAdmin):
-    list_display = ('id', 'nome_completo', 'email', 'cpf', 'telefone',
-                    'data_nascimento', 'is_staff')
-    list_display_links = ('email',)
 
     fieldsets = (
         (None, {
@@ -25,20 +22,63 @@ class CustomUserAdmin(UserAdmin):
                 'telefone',
             )
         }),
+        (_("Endereço"), {
+            'fields': (
+                'cep',
+                'estado',
+                'cidade',
+                'bairro',
+                'complemento',
+                'rua',
+                'numero',
+            )
+        }),
         (_('Permissões'), {
             'fields': (
                 'is_active',
-                'is_staff',
+                'is_admin',
                 'is_superuser',
                 'groups',
                 'user_permissions',
             )
         }),
-        (_('Importantes datas'), {
+        (_('Datas importantes'), {
             'fields': ('date_joined', 'last_login', )
         }),
     )
-    list_filter = ('is_staff',)
+
+    add_fieldsets = (
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": (
+                    'nome_completo',
+                    "email",
+                    'cpf',
+                    'data_nascimento',
+                    'telefone',
+                    'cep',
+                    'estado',
+                    'cidade',
+                    'bairro',
+                    'complemento',
+                    'rua',
+                    'numero',
+                    'is_admin',
+                    'is_superuser',
+                    'groups',
+                    'user_permissions',
+                    "password1", "password2"
+                ),
+            },
+        ),
+    )
+
+    list_display = ('id', 'nome_completo', 'email', 'cpf', 'telefone',
+                    'data_nascimento', 'is_admin')
+    list_display_links = ('email',)
+    list_filter = ('is_admin',)
 
     search_fields = ("email", 'nome_completo', 'cpf', 'telefone')
     ordering = ('nome_completo',)
@@ -46,7 +86,6 @@ class CustomUserAdmin(UserAdmin):
         'groups',
         'user_permissions',
     )
-
     readonly_fields = ('date_joined', 'last_login')
 
 

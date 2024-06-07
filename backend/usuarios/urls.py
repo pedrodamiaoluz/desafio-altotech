@@ -1,7 +1,11 @@
 from django.urls import path
 from rest_framework import routers
 
-from usuarios.api.views import UserViewSet, LoginAPIView, LogoutAPIView
+from usuarios.api.views import (
+    UserViewSet,
+    LoginAPIView,
+    LogoutAPIView,
+)
 
 route = routers.SimpleRouter()
 

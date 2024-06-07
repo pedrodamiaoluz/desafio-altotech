@@ -3,12 +3,13 @@ from rest_framework import status, viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from drf_spectacular.utils import extend_schema
 from rest_framework.decorators import action
-
+from usuarios.api.permissions import EhOProprioUsuario
 from usuarios.api.serializers import (
     LoginSerializer,
     UserChangeSerializer,
+    UserEnderecoSerializer,
     UserSerializer,
     ChangePasswordSerializer,
 )
@@ -19,15 +20,16 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
 
     def get_permissions(self):
-        permission_classes = []
-                    
+        permission_classes = [IsAuthenticated]
+
         if self.action in ["list"]:
             permission_classes.append(IsAdminUser)
 
-        if self.action in ['create']:
-            permission_classes.append(AllowAny)
+        elif self.action in ['create']:
+            permission_classes = [AllowAny]
         else:
-            permission_classes.append(IsAuthenticated)
+            permission_classes.append(EhOProprioUsuario)
+
         return [permission() for permission in self.permission_classes]
 
     def get_serializer_class(self):
@@ -35,6 +37,8 @@ class UserViewSet(viewsets.ModelViewSet):
             return UserChangeSerializer
         if self.action == "set_password":
             return ChangePasswordSerializer
+        if self.action in ['atualizar_endereco', 'get_endereco']:
+            return UserEnderecoSerializer
         return UserSerializer  # actions = 'list', 'create'
 
     @action(detail=True, methods=['POST'], name="Mudar senha")
@@ -48,7 +52,24 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response({"sucesso": "Nova senha definida"},
                         status=status.HTTP_200_OK)
 
+    @action(detail=True, methods=['patch'])
+    def atualizar_endereco(self, request, pk=None):
+        serializer_class = self.get_serializer_class()
+        instancia = self.get_object()
+        serializer = serializer_class(
+            instancia, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(data={'sucesso': 'Endereço cadastrado'}, status=status.HTTP_200_OK)
 
+    @action(detail=True, methods=['get'])
+    def get_endereco(self, request, pk=None):
+        instancia = self.get_object()
+        serializer = self.get_serializer(instancia)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+@extend_schema(request=LoginSerializer)
 class LoginAPIView(APIView):
     def post(self, request, format=None):
         serializer = LoginSerializer(data=request.data)

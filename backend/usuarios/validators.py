@@ -4,10 +4,11 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 from django.core.exceptions import ValidationError
 
-PADRA_REGEX_LETRAS = r'^[a-zá-ú\s]+$'
-PADRA_REGEX_TELEFONE = r'^\(?[0-9]{2}\)?[\s]?[9]?[0-9]{4}[-]?[0-9]{4}$'
-PADRA_REGEX_CPF = r'^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$'
-PADRA_REGEX_EMAIL = r'^[a-z0-9._]+@[a-z]+\.([a-z]{3,})(\.[a-z]{2,})?$'
+# PADRA_REGEX_LETRAS = r"(^[a-zá-ú]{2,})(((\s[a-zá-ú]{2,})+)?)[^\s]$"
+PADRA_REGEX_LETRAS = r"^[a-zá-ú\s]{2,}$"
+PADRA_REGEX_TELEFONE = r"^(\(\d{2}\)[\s][9]?\d{4}[-]\d{4})|(\d{2}[\s]?[9]?\d{4}\d{4})$"
+PADRA_REGEX_CPF = r"^\d{3}\.\d{3}\.\d{3}\-\d{2}$"
+PADRA_REGEX_EMAIL = r"^[a-z0-9._]+@[a-z]+\.com$"
 
 
 def eh_de_maior(data_nascimento):
