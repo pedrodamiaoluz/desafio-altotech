@@ -110,8 +110,6 @@ header > .container{
     color: #000;
 }
 
-
-
 /*Configurações sobre as Categorias*/
 
 .titulo{
@@ -131,24 +129,36 @@ header > .container{
     align-content: center;
     justify-items: center;
     gap: 18px;
-   
-
 }
 
-/* .categoria__container ul::-webkit-scrollbar{
-    width: 5px;
+/*.dot{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
-.categoria__container ul::-webkit-scrollbar-thumb{
-    background-color: #0000003f;
-    width: 5px;
+.astive, .dot:hover{
+    background-color: #717171;
+}
 
-} */
+.mySlides{
+    display: none;
+}
 
-/* .categoria__container ul::-webkit-scrollbar-button{
-  background-color: red;
-   width: 10px;
-} */
+.fade{
+   animation-name: fade;
+   animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: .1}
+}*/
 
 
 
