@@ -15,6 +15,7 @@ urlpatterns = [
     # Minhas urls
     path("api/usuarios/", include("usuarios.urls")),
     path("api/produtos/", include("produtos.urls")),
+    path("api/pedidos/", include("pedidos.urls")),
 
     path("admin/", admin.site.urls),
 ]
