@@ -34,13 +34,14 @@ body{
     border: none;
     cursor: pointer;
     transition-duration: 0.4s;
+    
 }
 
-.login__container form .button_cliente:hover, .button_clien button:hover, .button__esqueceu-senha button:hover{
+/*.login__container form .button_cliente:hover, .button_clien button:hover, .button__esqueceu-senha button:hover{
     background-color: transparent;
     border: 1px solid #56C033;
-    color: #569641;
-}
+    color: #569641; 
+}*/
 
 
 .login__container form span{
@@ -84,7 +85,7 @@ body{
 /*configuração do novo cliente*/
 
 .button_clien{
-    margin: 20px auto;
+    margin: 5px auto;
 }
 
 /*configuração do formulario de cadatre-se*/
@@ -173,7 +174,7 @@ body{
  }
 
  .button__esqueceu-senha{
-    margin: 30px auto;
+    margin: 20px auto;
  }
 
  /*Configurações sobre nova senha*/
@@ -218,7 +219,7 @@ body{
 }
 
 .button__novasenha{
-  margin: 40px auto 20px auto;
+  margin: 20px auto 0 auto;
 }
 
 .button__novasenha button{
