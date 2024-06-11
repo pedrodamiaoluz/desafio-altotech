@@ -12,10 +12,14 @@ urlpatterns = [
          SpectacularRedocView.as_view(url_name='schema'),
          name='redoc'),
 
-    # Minhas urls
-    path("api/usuarios/", include("usuarios.urls")),
-    path("api/produtos/", include("produtos.urls")),
+    # Minhas urls API
+    path("api/usuarios/", include("usuarios.api.urls")),
+    path("api/produtos/", include("produtos.api.urls")),
     path("api/pedidos/", include("pedidos.urls")),
+
+    # Minhas urls API
+    path("usuarios/", include("usuarios.urls")),
+    path("produtos/", include("produtos.urls")),
 
     path("admin/", admin.site.urls),
 ]

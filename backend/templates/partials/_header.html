@@ -1,0 +1,29 @@
+{% load static %}
+<div class="container">
+    <div class="header__logo">
+        <img src="{% static 'img/v-mark-vegan-logo-5.png' %}" alt="">
+    </div>
+
+    <nav class="header__navegacao">
+        <ul>
+            <li><a href="/src/index.html">Home</a></li>
+            <li><a href="#">Compre Por Categoria</a></li>
+            <li><a href="#">Sobre Nos</a></li>
+            <li><a href="#">Contate-nos</a></li>
+        </ul>
+    </nav>
+
+    <div class="flex">
+        <div class="input__pesquisa">
+            <input type="text" placeholder="Pesquise produto, marcas, etc...">
+            <a class="pesquisa" href=""><i class="bi bi-search"></i>
+        </a>
+    </div>
+       <div class="header__icons">
+           <a href="./Login/login.html"><i class="bi bi-person"></i>
+           </a>
+           <a href=""><i class="bi bi-cart3"></i>
+           </a>
+       </div>
+    </div>
+</div>

@@ -1,19 +1,12 @@
 from django.urls import path
-from rest_framework import routers
 
-from usuarios.api.views import (
-    UserViewSet,
-    LoginAPIView,
-    LogoutAPIView,
-)
+from .views import CadastroView, EsqueceuSenhaView, LoginView, NovaSenhaView
 
-route = routers.SimpleRouter()
-
-route.register(r'', UserViewSet)
+app_name='usuarios'
 
 urlpatterns = [
-    path("login/", LoginAPIView.as_view(), name="login"),
-    path("logout/", LogoutAPIView.as_view(), name="logout"),
+    path('login/', LoginView.as_view(), name='login'),
+    path('cadastro/', CadastroView.as_view(), name='cadastro'),
+    path('esqueceu-senha/', EsqueceuSenhaView.as_view(), name='esqueceu_senha'),
+    path('nova-senha/<str:uid>/<str:token>/', NovaSenhaView.as_view(), name='nova_senha'),
 ]
-
-urlpatterns += route.urls

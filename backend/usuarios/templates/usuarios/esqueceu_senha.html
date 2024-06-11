@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} Esqueceu Senha {% endblock title %}
+
+{% block content %}
+<section>
+    <div class="esqueceu__senha-container">
+        <div class="senha__container-titulo">
+            <h1>Esqueceu Senha</h1>
+            <p>Para recuperar seu acesso, precisamos do seu E-mail ou CPF.</p>
+        </div>
+
+        <form action="{% url 'usuarios:esqueceu_senha' %}" method="POST">
+            {% include 'partials/messages.html' %}
+            {% include 'partials/_form.html' %}
+            <div class="button__esqueceu-senha">
+                <button type="submit"> Continuar </button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock content %}

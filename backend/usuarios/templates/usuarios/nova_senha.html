@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Nova Senha {% endblock title %}
+
+{% block content %}
+<section>
+    <div class="container_novasenha">
+        <div class="titulo__novasenha">
+            <h1>Criar a Nova Senha</h1>
+            <p>Sua senha deve conter no minimo 8 caractere!!!</p>
+        </div>
+        <form action="{% url 'usuarios:nova_senha' uid token %}" method="POST">
+            {% include 'partials/_form.html' %}
+            <div class="button__novasenha">
+                <button type="submit">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    {% include "partials/_head.html" %}
+
+    <title>{% block title %} Ecommerce Capacitação {% endblock title %}</title>
+</head>
+<body>
+
+    <header>
+        {% include "partials/_header.html" %}
+    </header>
+    {% block content %}{% endblock content %}
+    <footer>
+        {% include "partials/_footer.html" %}
+    </footer>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+
+<section>
+    <div class="login__container">
+        <div class="login_conteudo">
+            <h1>Clientes Registrados</h1>
+            <p>Se você tiver uma conta, faça login com seu endereço de e-mail.</p>
+        </div>
+        <form action="{% url 'usuarios:login' %}" , method='POST'>{% csrf_token %}
+            {% include "partials/messages.html" %}
+
+            {% for field in form %}
+            <label for="{{field.id_for_label}}">{{field.label}}: </label>
+            {{field}}
+            {{field.help_text}}
+            {% endfor %}
+
+            <input type="submit" class="button_cliente" value="Login">
+            <span><a href="{% url 'usuarios:esqueceu_senha' %}">Esqueseu sua senha?</a></span>
+        </form>
+    </div>
+</section>
+
+<section>
+    <div class="novo__cliente">
+        <div class="cliente">
+            <h1>Novos Clientes</h1>
+            <p>
+                Criar uma conta traz muitos benefícios: finalizar a compra com mais rapidez, manter mais de um endereço,
+                rastrear pedidos e muito mais.
+            </p>
+        </div>
+        <div class="button_clien">
+            <a href="{% url 'usuarios:cadastro' %}">Criar a sua conta aqui</a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
