@@ -48,8 +48,12 @@ header > .container{
 .header__navegacao ul li{
     list-style-type: none;
     display: inline-block;
-    padding: 0 10px;
-    transition: .2s;
+    padding: 8px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.header__navegacao ul li:hover{
+    background-color: #56C033;
 }
 
 .header__navegacao ul li a{
@@ -57,10 +61,7 @@ header > .container{
     color: #000;
     font-weight: 700;
     display: inline-block;
-}
-
-.header__navegacao ul li a:hover{
-    box-shadow: 0 3px 0 #569641;
+    
 }
 
 .input__pesquisa{
