@@ -138,6 +138,12 @@ body {
     padding: 8px 0;
 }
 
+.from__erro{
+    background-color: transparent; 
+    margin: 20px 0 5px 0;
+    color: red;
+}
+
 .button_cadastro {
     margin: 40px auto 20px auto;
 }
@@ -161,6 +167,7 @@ body {
     border: 1px solid #56C033;
     color: #569641;
 }
+
 
 /*configuração sobre Esqueceu senha*/
 
