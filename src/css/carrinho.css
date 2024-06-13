@@ -1,0 +1,135 @@
+
+
+
+header > .carrinho__container{
+    background-color: #4B6B40;
+    max-width: 1500px;
+    margin: 0 auto;
+    height: 84px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    box-shadow: 0 0 8px #bdbcbc;
+   
+}
+
+.carrinho__container .borda{
+    border-image: linear-gradient(to left,#4B6B40, #56C033, #354132, #569641, #2E332C, #4EEA18) 2;
+    border-style: solid;
+    border-radius: 20px;
+    width: 1100px;
+    margin: 4px auto;
+   
+}
+
+.header__carrinho-container-logo img{
+    width: 100px;
+    height: 50px;
+    margin-left: 230px;
+}
+
+/*configurações da main*/
+
+.main__carrinho-container .carrinho__adicionado, .informações__do__produto{
+    background-color: transparent;
+    width: 900px;
+    margin: 30px auto;
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 0 8px #bdbcbc;
+
+}
+
+.main__carrinho-container .carrinho-container-icons{
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.titulo__carrinho h1{
+    color: #569641;
+    margin-left: 125px;
+}
+
+.carrinho-container-icons .bi{
+   font-size: 30px;
+   border: 1px solid #000;
+   border-radius: 100%;
+   padding: 12px;
+}
+
+.carrinho-container-icons .icons a{
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+.carrinho__conteudo-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.carrinho__conteudo-img img{
+    width: 120px;
+    height: 120px;
+}
+
+.input__quantidade{
+    border: 1px solid #4EEA18;
+    width: 70px;
+    padding: 8px 5px;
+    font-size: 17px;
+    outline: none;
+}
+
+.carrinho__adicionado button{
+    background-color: #4EEA18;
+    border: none;
+    padding: 10px 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    color: #2E332C;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.informações__do__produto .inf-produto, .total__geral{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.informações__do__produto .inf-produto input{
+    width: 100px;
+    border: 1px solid #4EEA18;
+    outline: none;
+    padding: 5px;
+}
+
+.total__geral .button_total{
+    margin: 20px 0;
+}
+
+.total__geral .button_total a{
+    text-decoration: none;
+    background-color: #4EEA18;
+    color: #2E332C;
+    font-weight: 700;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+

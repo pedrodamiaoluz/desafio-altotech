@@ -9,70 +9,74 @@
     <!--Fim bootstrap-icons-->
 
     <link rel="stylesheet" href="../css/main.css">
-    <title>Cadastro</title>
+    <title>Carrinho</title>
 </head>
 <body>
-
     <header>
-        <div class="container">
-            <div class="header__logo">
-                <img src="/pages/img/v-mark-vegan-logo-5.png" alt="">
+        <div class="carrinho__container">
+            <div class="header__carrinho-container-logo">
+                <img src="../../pages/img/logo_header_carrinho.png" alt="">
             </div>
-
-            <nav class="header__navegacao">
-                <ul>
-                    <li><a href="/src/index.html">Home</a></li>
-                    <li><a href="#">Compre Por Categoria</a></li>
-                    <li><a href="#">Sobre Nos</a></li>
-                    <li><a href="#">Contate-nos</a></li>
-                </ul>
-            </nav>
-
-            <div class="flex">
-                <div class="input__pesquisa">
-                    <input type="text" placeholder="Pesquise produto, marcas, etc...">
-                    <a class="pesquisa" href=""><i class="bi bi-search"></i>
-                </a>
-            </div>
-               <div class="header__icons">
-                   <a href="./Login/login.html"><i class="bi bi-person"></i>
-                   </a>
-                   <a href=""><i class="bi bi-cart3"></i>
-                   </a>
-               </div>
-            </div>
+            <div class="borda"></div>
         </div>
     </header>
 
-     <section>
-        <div class="cadastre-se">
-            <div class="cadastre__se-conteudo">
-                <h1>Criar Nova Conta De Cliente</h1>
-                <p>Criar uma conta é fácil. Basta preencher o formulário abaixo.</p>
+    <main>
+        <section>
+            <div class="main__carrinho-container">
+            <div class="carrinho-container-icons">
+                <div class="icons">
+                    <a href="" style="color: #569641;">
+                        <i class="bi bi-cart-fill"></i>
+                        <span>Carrinho</span>
+                    </a>
+                </div>
+                <div class="icons">
+                    <a href="">
+                        <i class="bi bi-person-fill"></i>
+                        <span>Identificação</span>
+                    </a>
+                </div>
+                <div class="icons">
+                    <a href="">
+                        <i class="bi bi-credit-card-2-back-fill"></i>
+                        <span>Pagamento</span>
+                    </a>
+                </div>
             </div>
-
-            <form>            
-                <label for="#">Nome Completo *</label>
-                <input type="text" placeholder="Informe seu nome completo">
-                <label for="#">CPF *</label>
-                <input type="text" placeholder="Informe seu nome CPF">     
-                <label for="#">Data de nascimento *</label>
-                <input type="text" placeholder="Informe sua data de nascimento">    
-                <label for="#">Telefone *</label>
-                <input type="tel" name="telefone" id="telefone" placeholder="(DDD) 00000-0000">
-                <label for="#">E-mail *</label>
-                <input type="email" name="email" id="email" placeholder="E-mail">         
-                <label for="#">Senha *</label>
-                <input type="password" name="senha" id="senha" placeholder="Senha">
-            </form>
-
-            <div class="button_cadastro">
-                <button href="./login.html" class="button_cadastr">Criar</button>
+            <div class="titulo__carrinho">
+                <h1>Carrinho</h1>
             </div>
-        </div>
-     </section>
+            <div class="carrinho__adicionado">
+                <div class="carrinho__conteudo-img">
+                    <img src="../../pages/Img-Lanche/BatataFolhadoBiscoito/Batata-Palito-LUTOSA.webp" alt="">
+                    <span>Batata fritas</span>
+                </div>
+                <input class="input__quantidade" type="number" name="" id="" placeholder="0">
+                <div>
+                    <span>R$ 0,00</span>
+                </div>
+                <button>Remover</button>
+            </div>
+            
+            <div class="informações__do__produto">
+                <div class="inf-produto">
+                   <p>Outras opções de <strong>Entrega</strong> na proxima etapa</p>
+                   <p><strong>Frete para o CEP</strong></p>
+                   <input type="text" name="" id="" placeholder="00000-000">
+                </div>
+                <div class="total__geral">
+                    <p>Frete Total: </p>
+                    <p><strong>Total: </strong> R$ 0,00</p>
+                    <div class="button_total">
+                        <a href="">Continuar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-     <footer>
+    <footer>
         <div class="container">
              <div class="footer__container">
                  <div class="footer__logo">
