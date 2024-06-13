@@ -24,7 +24,7 @@ body {
 }
 
 .login__container form .button_cliente,
-.button_clien button,
+.button_clien a,
 .button__esqueceu-senha button {
     text-decoration: none;
     color: #fff;
@@ -40,7 +40,7 @@ body {
 }
 
 .login__container form .button_cliente:hover,
-.button_clien button:hover,
+.button_clien a:hover,
 .button__esqueceu-senha button:hover {
     background-color: transparent;
     border: 1px solid #56C033;
