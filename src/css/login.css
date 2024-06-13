@@ -113,7 +113,7 @@ body{
     margin: 20px 0;
  }
 
- .cadastre-se form .form__input{
+ .cadastre-se form{
     display: flex;
     flex-direction: column;
     justify-content: center;
