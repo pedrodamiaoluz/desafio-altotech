@@ -32,15 +32,16 @@ header > .carrinho__container{
 
 /*configurações da main*/
 
-.main__carrinho-container .carrinho__adicionado, .informações__do__produto{
+.main__carrinho-container{
     background-color: transparent;
-    width: 900px;
-    margin: 30px auto;
+    width: 600px;
+    margin: 5px auto;
     display: flex;
+    flex-direction: column;
     padding: 20px 0;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 0 8px #bdbcbc;
+    /*box-shadow: 0 0 8px #bdbcbc;*/
 
 }
 
@@ -54,12 +55,13 @@ header > .carrinho__container{
 
 .titulo__carrinho h1{
     color: #569641;
-    margin-left: 125px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .carrinho-container-icons .bi{
    font-size: 30px;
-   border: 1px solid #000;
+   border: 1px solid #569641;
    border-radius: 100%;
    padding: 12px;
 }
@@ -74,18 +76,33 @@ header > .carrinho__container{
     gap: 5px;
 }
 
-
+/*------------------------------------*/
+.produto-adicionado{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
 
 .carrinho__conteudo-img{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    
 }
 
 .carrinho__conteudo-img img{
     width: 120px;
     height: 120px;
+}
+
+.remover__quantidade{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
 }
 
 .input__quantidade{
@@ -107,9 +124,27 @@ header > .carrinho__container{
     cursor: pointer;
 }
 
+/*------------------------------------*/
+
+.informações__do__produto tr{
+    background-color: transparent;
+    width: 600px;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .informações__do__produto .inf-produto, .total__geral{
     display: flex;
     flex-direction: column;
+    gap: 5px;
+}
+
+.total{
+    display: flex;
     gap: 5px;
 }
 
