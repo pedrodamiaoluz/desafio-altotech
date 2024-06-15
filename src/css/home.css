@@ -312,39 +312,27 @@ header > .container{
 }
 
 .button__adicionar-carrinho{
-    text-decoration: none;
     background-color: #4EEA18;
     padding: 10px 15px;
     margin: 20px 0;
     border-radius: 5px;
-}
-
-.button__adicionar-carrinho a{
     color: #2E332C;
     font-weight: 600;
-
+    border: none;
 }
+
 
 .preco_quantidade{
     display: flex;
-    align-items: center;
     gap: 30px;
 }
 
-.quantidade{
-    border: 1px solid #4EEA18;
-    cursor: pointer;
-    text-align: center;
-}
 
-.preco_quantidade span input{
-    width: 40px;
-    height: 20px;
+.input-quantidade-prod{
+    width: 60px;
+    cursor: pointer;
     padding: 5px;
-    border-left: 1px solid #4EEA18;
-    border-right:  1px solid #4EEA18;
-    border-bottom:none;
-    border-top: none;
+    border: 1px solid #4EEA18;
     outline: none;
 }
 
