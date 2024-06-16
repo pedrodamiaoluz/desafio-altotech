@@ -297,7 +297,7 @@ header > .container{
     }
 }
 
-.alimentos_integrais ul li img{
+.alimentos_integrais ul li a img{
     margin-top: 20px;
     width: 150px;
     height: 150px;
@@ -319,6 +319,7 @@ header > .container{
     color: #2E332C;
     font-weight: 600;
     border: none;
+    cursor: pointer;
 }
 
 

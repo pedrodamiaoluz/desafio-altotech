@@ -168,3 +168,89 @@ header > .carrinho__container{
     border-radius: 5px;
 }
 
+/*Configurações sobre a identificação*/
+
+.form__indentificacao-container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.form__indentificacao-container input{
+    width: 620px;
+    height: 50px;
+    padding: 20px 8px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #bdbcbc;
+}
+
+.endereco_numero{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.endereco_numero .endereco{
+    width: 500px;
+}
+
+.endereco_numero .numero{
+    width: 100px;
+}
+
+.cidade_estado_cep{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cidade_estado_cep input{
+    width: 197px;
+}
+
+.cidade_estado_cep select{
+    background-color: transparent;
+    padding: 0 5px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #bdbcbc;
+    text-overflow: ellipsis;
+    color: #6d6969;
+    cursor: pointer;
+}
+
+.cidade_estado_cep select option{
+    color: #000;
+    
+}
+
+.form__buutton{
+    display: flex;
+    justify-content: end;
+}
+
+.form__buutton a{
+    background-color: #4EEA18;
+    text-decoration: none;
+    border: none;
+    padding: 10px 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    color: #2E332C;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/*Configurações sobre o pagamento*/
+
+.pagamento__container form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
