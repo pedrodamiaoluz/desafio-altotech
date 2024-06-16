@@ -48,8 +48,12 @@ header > .container{
 .header__navegacao ul li{
     list-style-type: none;
     display: inline-block;
-    padding: 0 10px;
-    transition: .2s;
+    padding: 8px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.header__navegacao ul li:hover{
+    background-color: #56C033;
 }
 
 .header__navegacao ul li a{
@@ -57,10 +61,7 @@ header > .container{
     color: #000;
     font-weight: 700;
     display: inline-block;
-}
-
-.header__navegacao ul li a:hover{
-    box-shadow: 0 3px 0 #569641;
+    
 }
 
 .input__pesquisa{
@@ -311,39 +312,27 @@ header > .container{
 }
 
 .button__adicionar-carrinho{
-    text-decoration: none;
     background-color: #4EEA18;
     padding: 10px 15px;
     margin: 20px 0;
     border-radius: 5px;
-}
-
-.button__adicionar-carrinho a{
     color: #2E332C;
     font-weight: 600;
-
+    border: none;
 }
+
 
 .preco_quantidade{
     display: flex;
-    align-items: center;
     gap: 30px;
 }
 
-.quantidade{
-    border: 1px solid #4EEA18;
-    cursor: pointer;
-    text-align: center;
-}
 
-.preco_quantidade span input{
-    width: 40px;
-    height: 20px;
+.input-quantidade-prod{
+    width: 60px;
+    cursor: pointer;
     padding: 5px;
-    border-left: 1px solid #4EEA18;
-    border-right:  1px solid #4EEA18;
-    border-bottom:none;
-    border-top: none;
+    border: 1px solid #4EEA18;
     outline: none;
 }
 
