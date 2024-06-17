@@ -22,7 +22,7 @@ function ready(){
    }
 }
 
-function buttonAdicionar(event){
+/*function buttonAdicionar(event){
     const button = event.target
     const produtoInform = button.parentElement.parentElement
     const produtoImageElement = produtoInform.getElementsByClassName("alimentos-img")[0]
@@ -64,7 +64,7 @@ function buttonAdicionar(event){
     tableBody.append(creatProduto);
     
     
-}
+}*/
 
 
 function removeProdut(event){

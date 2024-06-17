@@ -247,10 +247,60 @@ header > .carrinho__container{
 
 /*Configurações sobre o pagamento*/
 
-.pagamento__container form{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.pagamento__container .menu_form{
+    display: none;
 }
 
+.pagamento__container input{
+    width: 500px;
+    height: 50px;
+    padding: 20px 8px;
+    outline-color: #4EEA18;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px 0;
+}
 
+.validade__codigo{
+    display: flex;
+    gap: 20px;
+}
+
+.validade__codigo .Valide_Thru{
+    width: 370px;
+}
+
+.validade__codigo .Securite_Code{
+    width: 110px;
+}
+
+.menu_cartao-credito{
+    background-color: transparent;
+    border: 1px solid #4EEA18;
+    width: 500px;
+    height: 70px;
+    padding: 20px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu_conteudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu_conteudo i{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu_cartao-credito img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
