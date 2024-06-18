@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Compre Por Categoria {% endblock title %}
+
+{% block content %}
+
+    <section class="compre_por_categoria">
+        <div class="categoria-flex">
+            <div class="compre_por_categoria-container">
+                <h2>Selecione uma categoria</h2>
+                <div class="categoria__links">
+                    {% for categoria in categorias %}
+                    <a href="{{categoria.get_absolute_url}}">{{categoria.nome}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="escolha__categorias">
+                <h1>Escolha uma Categoria</h1>
+                <div class="categoria">
+                     <ul>
+                         {% for categoria in categorias %}
+                        <li>
+                            <a href="{{categoria.get_absolute_url}}">
+                                {% if categoria.imagem %}
+                                <img  src="{{categoria.imagem.url}}" alt="">
+                                {% endif %}
+                                <span>{{categoria.nome}}</span>
+                            </a>
+                        </li>
+                         {% endfor %}
+                     </ul>
+                </div>
+            </div>
+        </div>
+        {% include 'partials/pagination.html' %}
+    </section>
+
+{% endblock content %}

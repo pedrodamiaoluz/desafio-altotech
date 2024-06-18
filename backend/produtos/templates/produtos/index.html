@@ -6,6 +6,7 @@
 {% block content %}
 
     <main>
+        {% include 'partials/messages.html' %}
         <section><!--minhas Categorias-->
              <div class="container">
                  <div class="categoria__container">
@@ -13,53 +14,17 @@
                          <h1>Compre por categoria</h1>
                      </div>
                     <ul>
+                        {% for categoria in categorias %}
                         <li class="mySlides fade">
                             <a href="./ComprePorCategoria/lanche.html">
-                                <img src="/pages/img/lanches.jpg" alt="">
-                                <span>Lanche</span>
+                                {% if categoria.imagem %}
+                                <img  src="{{categoria.imagem.url}}" alt="">
+                                {% endif %}
+                                <span>{{categoria.nome}}</span>
                             </a>
                         </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/panificaçao.jpg" alt="">
-                                <span>Produtos de panificação</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/carnedo-mar.jpg" alt="">
-                                <span>Carne e Frutos do Mar</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/ovos.jpg" alt="">
-                                <span>Queijo, Ovos e Laticínios</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/doces.jpg" alt="">
-                                <span>Chocolate, Doces e Doces</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/despensa.jpg" alt="">
-                                <span>Fundamentos da despensa</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/nutricao-cachorro.jpg" alt="">
-                                <span>Produtos para animais de companhia</span>
-                            </a>
-                        </li>
+                        {% endfor %}
                     </ul>
-                    <!--<div style="text-align: center;">
-                         <span class="dot" onclick="correntSlides(1)"></span>
-                         <span class="dot" onclick="correntSlides(2)"></span>
-                    </div>-->
                  </div><!--Fim da div categoria__container-->
              </div><!--Fim da div container-->
         </section>
@@ -68,82 +33,35 @@
             <div class="alimentos__integrais-container">
                 <div class="integrais_titulos">
                     <h1>Escolhas alimentos integrais veganas</h1>
-                     <span><a href="">Ver tudo</a><i class="bi bi-chevron-double-right"></i>
+                    {% if categoria_destaque %}
+
+                     <span><a href="{{categoria_destaque.get_absolute_url}}">Ver tudo</a><i class="bi bi-chevron-double-right"></i>
                      </span>
+                    {% endif %}
                 </div>
                 <div class="alimentos_integrais">
+                        {% if categoria_destaque %}
                     <ul>
+                        {% for produto in categoria_destaque.produtos.all %}
+
                         <li>
-                            <a href="">
-                                <img src="/pages/Alimentos-integrais/Pao-integral.png" alt="pão integral">
-                                <p>Pão Integral Orgânico</p>
-                            </a>
+                            <form action="{% url 'carrinho:carrinho' %}" method="PUT">
+                            <img src="{{produto.imagem.url}}" alt="">
+                            <p>{{produto.nome}}</p>
                             <div class="preco_quantidade">
-                                <span>R$ 0,00</span>
-                                <span class="quantidade"><i class="bi bi-dash"></i><input type="text" placeholder="0"><i class="bi bi-plus"></i>
-                                </span>
+                                <span>{{produto.preco}}</span>
+                                <input class="quantidade" type="number" value="0" min="0" max="{{produto.estoque}}" name="quantidade">
                             </div>
+                                <!-- <input type="hidden" value="{{produto.id}}" name="produto_id"> -->
                             <div class="button__adicionar-carrinho">
-                                <a href="">Adicionar no carrinho</a>
+                                <input type="submit" value="Adicionar no carrinho">
                             </div>
+                            </form>
                         </li>
-                        <li>
-                            <a href="">
-                                <img src="/pages/Alimentos-integrais/aveia.png" alt="">
-                                <p>Aveia</p>
-                            </a>
-                            <div class="preco_quantidade">
-                                <span>R$ 0,00</span>
-                                <span class="quantidade"><i class="bi bi-dash"></i><input type="text" placeholder="0"><i class="bi bi-plus"></i>
-                                </span>
-                            </div>
-                            <div class="button__adicionar-carrinho">
-                                <a href="">Adicionar no carrinho</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/pages/Alimentos-integrais/biscoito.jpeg" alt="">
-                                <p>Biscoito Orgânico</p>
-                            </a>
-                            <div class="preco_quantidade">
-                                <span>R$ 0,00</span>
-                                <span class="quantidade"><i class="bi bi-dash"></i><input type="text" placeholder="0"><i class="bi bi-plus"></i>
-                                </span>
-                            </div>
-                            <div class="button__adicionar-carrinho">
-                                <a href="">Adicionar no carrinho</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/pages/Alimentos-integrais/proteina-vegetal.png" alt="">
-                                <p>Proteina Vegetal</p>
-                            </a>
-                            <div class="preco_quantidade">
-                                <span>R$ 0,00</span>
-                                <span class="quantidade"><i class="bi bi-dash"></i><input type="text" placeholder="0"><i class="bi bi-plus"></i>
-                                </span>
-                            </div>
-                            <div class="button__adicionar-carrinho">
-                                <a href="">Adicionar no carrinho</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/pages/Alimentos-integrais/suco_de_uva_organico_integral.png" alt="">
-                                <p>Suco de Uva Orgânico</p>
-                            </a>
-                            <div class="preco_quantidade">
-                                <span>R$ 0,00</span>
-                                <span class="quantidade"><i class="bi bi-dash"></i><input type="text" placeholder="0"><i class="bi bi-plus"></i>
-                                </span>
-                            </div>
-                            <div class="button__adicionar-carrinho">
-                                <a href="">Adicionar no carrinho</a>
-                            </div>
-                        </li>
+
+                        {% endfor %}
                     </ul>
+                    {% endif %}
                 </div>
             </div>
         </section>

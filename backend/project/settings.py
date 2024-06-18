@@ -47,13 +47,7 @@ INSTALLED_APPS = [
     'usuarios',
     'produtos',
     'pedidos',
-
-    # rest framework
-    'rest_framework',
-    "django_filters",
-
-    # swagger
-    "drf_spectacular",
+    'carrinho',
 ]
 
 AUTH_USER_MODEL = 'usuarios.CustomUser'
@@ -174,20 +168,3 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ],
-    # swagger
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-}
-
-
-SPECTACULAR_SETTINGS = {
-    'TITLE': 'E-commerce capacitação',
-    'DESCRIPTION': 'Descrição',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
-}

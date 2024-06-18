@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
+from carrinho.models import Carrinho
 from produtos.models import Produto
 
 user_model = get_user_model()
@@ -18,7 +19,8 @@ class Pedido(models.Model):
         (STATUS_PEDIDO_CANCELADO, 'Cancelado'),
         (STATUS_PEDIDO_FINALIZADO, 'Finalizado'),
     )
-    user = models.ForeignKey(user_model, on_delete=models.DO_NOTHING, related_name='pedidos') # PROTECT
+    user = models.ForeignKey(user_model, on_delete=models.DO_NOTHING, related_name='pedidos', null=True) # PROTECT
+    carrinho = models.OneToOneField(Carrinho, on_delete=models.DO_NOTHING, null=True)
 
     # total = models.FloatField()
     status = models.CharField(
@@ -30,12 +32,3 @@ class Pedido(models.Model):
 
     def __str__(self):
         return f'Pedido N°{self.id}'
-
-
-class ItemPedido(models.Model):
-    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, related_name='itens')
-    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    quantidade = models.PositiveIntegerField()
-
-    def __str__(self):
-        return f"Item: {self.produto} pertence ao {self.pedido}"

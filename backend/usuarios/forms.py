@@ -2,7 +2,6 @@ import re
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
 
-from produtos.models import Carrinho
 from usuarios.utils import Util
 from usuarios.validators import PADRA_REGEX_CPF
 
@@ -48,7 +47,6 @@ class UserForm(forms.ModelForm):
     def save(self, **kwargs):
         password = self.cleaned_data.pop('senha')
         user = user_model.objects.create_user(password=password, **self.cleaned_data)
-        Carrinho.objects.create(proprietario=user)
         return user
 
 
@@ -127,8 +125,3 @@ class ChangePasswordSerializer(forms.Form):
             self.add_error(None, 'Senha e confirmar senha devem ser iguais')
 
         return cleaned_data
-
- 
-
-    # def eh_valido_uid_token(self, uid, token):
-    #     return Util.eh_valido_uid_token(uid, token)

@@ -6,8 +6,8 @@
 
     <nav class="header__navegacao">
         <ul>
-            <li><a href="/src/index.html">Home</a></li>
-            <li><a href="#">Compre Por Categoria</a></li>
+            <li><a href="{% url 'produtos:home' %}">Home</a></li>
+            <li><a href="{% url 'produtos:compra_por_categoria' %}">Compre Por Categoria</a></li>
             <li><a href="#">Sobre Nos</a></li>
             <li><a href="#">Contate-nos</a></li>
         </ul>
@@ -20,9 +20,9 @@
         </a>
     </div>
        <div class="header__icons">
-           <a href="./Login/login.html"><i class="bi bi-person"></i>
+           <a href="{% url 'usuarios:login' %}"><i class="bi bi-person"></i>
            </a>
-           <a href=""><i class="bi bi-cart3"></i>
+           <a href="{% url 'carrinho:carrinho' %}"><i class="bi bi-cart3"></i>
            </a>
        </div>
     </div>

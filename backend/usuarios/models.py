@@ -16,6 +16,8 @@ from usuarios.validators import (
     eh_valido_cpf,
 )
 
+# Create your models here.
+
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     ESTADO_CHOICES = (
@@ -53,7 +55,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
                               validators=[
                                   RegexValidator(re.compile(PADRA_REGEX_EMAIL),
                                                  'Endereço de email inválido')
-    ])
+                              ])
     nome_completo = models.CharField(
         _("nome"),
         max_length=100,
@@ -62,17 +64,18 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
                            'Caracteres inválidos, insira apenas letras')
         ])
     cpf = models.CharField(_("CPF"),
-                           null=True,
                            max_length=14,
                            unique=True,
+                           null=True,
                            validators=[
                                eh_valido_cpf,
                                RegexValidator(
                                    re.compile(PADRA_REGEX_CPF),
                                    'CPF não está no padrão exigido', 'invalid')
-    ])
-    data_nascimento = models.DateField(
-        null=True, validators=[eh_de_maior])
+                           ])
+    data_nascimento = models.DateField(null=True,
+                                       blank=False,
+                                       validators=[eh_de_maior])
     telefone = models.CharField(max_length=20,
                                 validators=[
                                     RegexValidator(
