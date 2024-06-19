@@ -89,3 +89,28 @@ document.querySelector(".total__geral span").innerText = "R$" + totalGeral
 }
 
 
+/*Configuracão da pagina pagamento*/
+
+$(document).ready(function() {
+    var botao = $('.menu_cartao-credito');
+    var dropDown = $('.menu_form');    
+   
+        botao.on('click', function(event){
+            dropDown.stop(true,true).slideToggle();
+            event.stopPropagation();
+        });
+   });
+
+
+   let butmenu = document.getElementsByClassName('bi')
+   let menumobile = document.getElementById('menu_ul')
+
+   
+   
+   butmenu.addEventListener('click', ()=>{
+       menumobile.classList.add('bi')
+   })
+   
+   menumobile.addEventListener('click', ()=>{
+       menumobile.classList.remove('bi')
+   })

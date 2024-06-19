@@ -251,6 +251,14 @@ header > .carrinho__container{
     display: none;
 }
 
+.pagamento__container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+
+}
+
 .pagamento__container input{
     width: 500px;
     height: 50px;
@@ -299,8 +307,15 @@ header > .carrinho__container{
     cursor: pointer;
 }
 
-.menu_cartao-credito img{
+.menu_cartao-credito .cartao__img{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cartao__img img{
     width: 30px;
     height: 30px;
     object-fit: cover;
 }
+

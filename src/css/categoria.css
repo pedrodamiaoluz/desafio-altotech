@@ -391,16 +391,55 @@
     color:#fff;
 }
 
-.compre_produto-links > .produto-links{
-    margin-top: 70px;
+/*------------------------------------------------------------------*/
+
+.compre_produto-links form > .produto-links{
+    margin-top: 40px;
 }
 
-.compre_produto-links details summary a:hover{
-    color: #569641;
+.menu_ul{
+    background-color: #000;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 2000;
+    width: 0%;
+    overflow: hidden;
     transition: .2s;
 }
 
-.compre_produto-links .categoria__lista-link{
+.menu_ul.bi{
+    width: 70%;
+}
+
+.compre_produto-links form .produto-links-Tit{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    color: #000;
+}
+
+.produto-links-Tit .bi{
+    font-size: 20px;
+    cursor: pointer;
+    color: #569641;
+    padding-left: 20px;
+}
+
+.compre_produto-links form .produto-links-Tit a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    transition: .2s;
+}
+
+.compre_produto-links form .produto-links .produto-links-Tit a:hover{
+    color: #569641; 
+}
+
+.compre_produto-links form .categoria__lista-link{
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     height: 50vh;
@@ -417,6 +456,22 @@
 }
 
 .categoria__lista-link li a span:hover{
+    color: #569641;
+    transition: .3s;
+}
+
+.compre_produto-links ul{
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+.compre_produto-links ul li a{
+    text-decoration: none;
+    color: #000;
+    padding: 3px 20px;
+}
+
+.compre_produto-links ul li span:hover{
     color: #569641;
     transition: .3s;
 }
@@ -442,6 +497,9 @@
 .compre_produto-links ul li .lista__link:hover{
     color: #000;
 }
+
+
+/*------------------------------------------------------------------*/
 
 .leuade__produto-categoria ul{
     display: flex;
