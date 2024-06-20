@@ -4,7 +4,7 @@
 {% block title %} Veganos Naturais {% endblock title %}
 
 {% block content %}
-
+        {% include "partials/messages.html" %}
         <section>
             <div class="main__carrinho-container">
             <div class="carrinho-container-icons">
@@ -46,8 +46,11 @@
                             <span class="produto-preco">{{item.produto.preco}}</span>
                         </td>
                         <td class="remover__quantidade">
-                            <input class="input__quantidade" type="number" value="{{item.quantidade}}" min="0" max="{{item.produto.estoque}}">
-                            <button type="button" class="button-remov">Remover</button>
+                            <form id="remover_atualizar_form_{{item.id}}" method="POST">{% csrf_token %}
+                            <input class="input__quantidade" type="number" value="{{item.quantidade}}" min="1" max="{{item.produto.estoque}}">
+                                <input type="hidden" value="{{item.produto.id}}" name="produto_id" >
+                            </form>
+                            <button form="remover_atualizar_form_{{item.id}}" formaction="{% url 'carrinho:remover_produto' %}" type="submit" class="button-remov">Remover</button>
                         </td>
                     </tr>
                         {% endfor %}
