@@ -101,16 +101,3 @@ $(document).ready(function() {
         });
    });
 
-
-   let butmenu = document.getElementsByClassName('bi')
-   let menumobile = document.getElementById('menu_ul')
-
-   
-   
-   butmenu.addEventListener('click', ()=>{
-       menumobile.classList.add('bi')
-   })
-   
-   menumobile.addEventListener('click', ()=>{
-       menumobile.classList.remove('bi')
-   })
