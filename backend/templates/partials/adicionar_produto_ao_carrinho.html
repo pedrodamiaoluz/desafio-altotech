@@ -1,0 +1,12 @@
+<form action="{% url 'carrinho:adicionar_produto' %}" method="POST">{% csrf_token %} 
+    {% if produto.imagem %}
+    <img src="{{produto.imagem.url}}" alt="">
+    {% endif %}
+    <p>{{produto.nome}}</p>
+    <div class="preco_quantidade">
+        <span>{{produto.preco}}</span>
+        <input class="quantidade" type="number" value="0" min="1" max="{{produto.estoque}}" name="quantidade">
+    </div>
+        <input type="hidden" value="{{produto.id}}" name="produto_id">
+        <button type="submit" class="button__adicionar-carrinho">Adicionar no carrinho</button>
+</form>

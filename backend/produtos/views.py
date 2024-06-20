@@ -48,17 +48,16 @@ class HomeView(View):
 
     def get(self, request, *args, **kwargs):
         categorias = Categoria.objects.get_categorias_principais()
-        categoria_destaque = None
-
-        try:
-            categoria_destaque = Categoria.objects.get(nome__iexact='Integrais veganas')
-        except Categoria.DoesNotExist:
-            messages.warning(request, 'A categoria Integrais veganas ainda não foi criada a sessâo ficará sem produtos até ela ser criada e conter produtos')
-
         context = {
             'categorias': categorias,
         }
-        if categoria_destaque:
+
+        try:
+            categoria_destaque = Categoria.objects.get(nome__iexact='Integrais veganas')
             context['categoria_destaque'] = categoria_destaque
+            context['produtos_destaques'] = categoria_destaque.produtos.all()[:5]
+
+        except Categoria.DoesNotExist:
+            messages.warning(request, 'A categoria Integrais veganas ainda não foi criada a sessâo ficará sem produtos até ela ser criada e conter produtos')
 
         return render(request, self.template_name, context)

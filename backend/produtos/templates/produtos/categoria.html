@@ -5,6 +5,8 @@
 
 {% block content %}
 
+{% include "partials/messages.html" %}
+
     <section class="compre_por_categoria">
        <div class="compre__conteudo-container">
           <div class="compre_produto">
@@ -65,19 +67,7 @@
                 <ul>
                     {% for produto in produtos %}
                     <li>
-                        <a href="#">
-                            {% if produto.imagem %}
-                            <img src="{{produto.imagem.url}}" alt="">
-                            {% endif %}
-                            <p>{{produto.nome}}</p>
-                        </a>
-                        <div class="leuade__produto-preco">
-                            <span>{{produto.preco}}</span>
-                            <span class="leaude__quantidade"><i class="bi bi-dash"></i><input type="text" placeholder="0"><i class="bi bi-plus"></i>
-                        </div>
-                        <div class="button__leaude-produto">
-                            <a href="">Adicionar no Carrinho</a>
-                        </div>
+                       {% include 'partials/adicionar_produto_ao_carrinho.html' %}
                     </li>
                     {% endfor %}
                 </ul>
@@ -88,4 +78,3 @@
     </section>
 
 {% endblock content %}
-

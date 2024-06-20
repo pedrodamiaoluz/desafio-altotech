@@ -14,7 +14,7 @@ class ProdutoAdmin(admin.ModelAdmin):
     search_fields = ('nome', )
     ordering = ('nome', 'preco', 'estoque')
 
-    filter_horizontal = ('categorias', )
+    filter_horizontal = ('categorias', 'ingredientes')
 
 
 admin.site.register(Produto, ProdutoAdmin)

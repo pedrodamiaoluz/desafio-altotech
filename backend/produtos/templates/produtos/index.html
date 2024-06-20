@@ -16,7 +16,7 @@
                     <ul>
                         {% for categoria in categorias %}
                         <li class="mySlides fade">
-                            <a href="./ComprePorCategoria/lanche.html">
+                            <a href="{{categoria.get_absolute_url}}">
                                 {% if categoria.imagem %}
                                 <img  src="{{categoria.imagem.url}}" alt="">
                                 {% endif %}
@@ -40,25 +40,12 @@
                     {% endif %}
                 </div>
                 <div class="alimentos_integrais">
-                        {% if categoria_destaque %}
+                        {% if produtos_destaques %}
                     <ul>
-                        {% for produto in categoria_destaque.produtos.all %}
-
+                        {% for produto in produtos_destaques %}
                         <li>
-                            <form action="{% url 'carrinho:carrinho' %}" method="PUT">
-                            <img src="{{produto.imagem.url}}" alt="">
-                            <p>{{produto.nome}}</p>
-                            <div class="preco_quantidade">
-                                <span>{{produto.preco}}</span>
-                                <input class="quantidade" type="number" value="0" min="0" max="{{produto.estoque}}" name="quantidade">
-                            </div>
-                                <!-- <input type="hidden" value="{{produto.id}}" name="produto_id"> -->
-                            <div class="button__adicionar-carrinho">
-                                <input type="submit" value="Adicionar no carrinho">
-                            </div>
-                            </form>
+                               {% include 'partials/adicionar_produto_ao_carrinho.html' %}
                         </li>
-
                         {% endfor %}
                     </ul>
                     {% endif %}
@@ -80,4 +67,3 @@
     </main>
 
 {% endblock content %}
-
