@@ -1,11 +1,16 @@
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
+from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls.base import reverse
 from django.views import View
-from django.http import Http404
 
-from usuarios.forms import ChangePasswordSerializer, EnviarEmailResetSenhaForm, LoginForm, UserForm
+from usuarios.forms import (
+    ChangePasswordSerializer,
+    EnviarEmailResetSenhaForm,
+    LoginForm,
+    UserForm,
+)
 from usuarios.utils import Util
 
 # Create your views here.
@@ -20,12 +25,28 @@ class LoginView(View):
             user = form.usuario_ehAutenticado()
             if user:
                 login(request, user)
+                next = request.POST.get('next', None)
+                if next:
+                    return redirect(next)
                 return redirect(reverse('produtos:home'))
+
             messages.error(request, 'Usuário não encontrado')
         return render(request, self.template_name, {'form': form})
 
     def get(self, request,  *args, **kwargs):
-        return render(request, self.template_name, {'form': LoginForm()})
+        context =  {
+            'form': LoginForm(),
+            'next': request.GET.get('next', None)
+        }
+        return render(request, self.template_name, context)
+
+
+class LogoutView(View):
+    def get(self, request, *args, **kwargs):
+        email = request.user.email
+        logout(request)
+        messages.success(request, f'Usuário {email} deslogado')
+        return redirect(reverse('produtos:home'))
 
 
 class CadastroView(View):
