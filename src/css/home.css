@@ -288,12 +288,14 @@ header > .container{
     box-shadow: 0 0 7px #bdbcbc;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     border-radius: 10px;
 
     p{
         color: #2E332C;
         margin: 20px 0;
+        text-align: center;
     }
 }
 

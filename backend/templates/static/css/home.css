@@ -264,6 +264,10 @@ header>.container {
     justify-items: center;
 }
 
+.integrais_titulos h1{
+   font-size: 9px;
+}
+
 .integrais_titulos span {
     display: flex;
     align-items: center;
@@ -291,12 +295,14 @@ header>.container {
     box-shadow: 0 0 7px #bdbcbc;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     border-radius: 10px;
 
     p {
         color: #2E332C;
         margin: 20px 0;
+        text-align: center;
     }
 }
 
