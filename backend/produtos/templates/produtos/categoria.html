@@ -7,52 +7,68 @@
 
 {% include "partials/messages.html" %}
 
+ <button type= "submit" form='filtrar_produtos'>Testando Filtro</button> {% comment %} falta adicionar o css {% endcomment %}
+
     <section class="compre_por_categoria">
        <div class="compre__conteudo-container">
           <div class="compre_produto">
             <div class="compre_produto-links">
+                <form id="filtrar_produtos" action="{% url 'produtos:categoria' categoria_id %}"method="GET">
 
-                <details class="produto-links" open>
-                    <summary><a href="">Comprar por ingredientes</a></summary>
-                    <ul>
+                    <div class="produto-links" >
+                        <div class="produto-links-Tit" id="produto-links-Tit">
+                            <a href="">Comprar por ingredientes</a>
+                            <i class="bi bi-check-lg button1"></i>
+                        </div>
+
+                    <ul id="menu_ul1">
                         {% for ingrediente in ingredientes %}
                         <li>
                             <a href="" class="lista__link">
-                                <input type="checkbox" name="" id="">
+                                <input type="checkbox" name="ingredientes" value="{{ingrediente.id}}" {% if filtro_ingredientes and  ingrediente.id in filtro_ingredientes %} checked {% endif %}>
                                 <span class="lista-titulos">{{ingrediente.nome}}</span>
                             </a>
                         </li>
                         {% endfor %}
                     </ul>
-                </details>
+                    </div>
 
-                <details>
-                    <summary><a href="">Categorias</a></summary>
-                    <ul class="categoria__lista-link">
+                    <div class="produto-links">
+                        <div class="produto-links-Tit">
+                            <a href="">Categorias</a>
+                            <i class="bi bi-check-lg button2"></i>
+                        </div>
+
+                    <ul class="categoria__lista-link" id="menu_ul2">
                         {% for categoria in categorias %}
                         <li>
                             <a href="" class="lista__link">
-                                <input type="checkbox" name="" id="">
+                                <input type="checkbox" name="categorias" value="{{categoria.id}}" {% if filtro_categorias and categoria.id in filtro_categorias %} checked {% endif %}>
                                 <span>{{categoria.nome}}</span>
                             </a>
                         </li>
                         {% endfor %}
                     </ul>
-                </details>
+                    </div>
 
-                <details>
-                    <summary><a href="">Marca</a></summary>
-                    <ul class="marca__lista-link">
+                    <div class="produto-links">
+                        <div class="produto-links-Tit">
+                            <a href="">Marca</a>
+                            <i class="bi bi-check-lg button3"></i>
+                        </div>
+
+                    <ul class="marca__lista-link" id="menu_ul3">
                         {% for marca in marcas %}
                         <li>
                             <a href="" class="lista__link">
-                                <input type="checkbox" name="" id="">
+                                <input type="checkbox" name="marcas" value="{{marca.id}}" {% if filtro_marcas and  marca.id in filtro_marcas %} checked {% endif %}>
                                 <span>{{marca.nome}}</span>
                             </a>
                         </li>
                         {% endfor %}
                     </ul>
-                </details>
+                    </div>
+                </form>
             </div>
           </div>
 
