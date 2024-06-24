@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Compre Por Categoria {% endblock title %}
+
+{% block content %}
+
+{% include "partials/messages.html" %}
+
+ <button type= "submit" form='filtrar_produtos'>Testeando Filtro</button>
+
+    <section class="compre_por_categoria">
+       <div class="compre__conteudo-container">
+          <div class="compre_produto">
+            <div class="compre_produto-links">
+
+                {% comment %} <div class="compre__produto__links-lista">
+                    
+                    <h3>Ver todos os Produtos</h3>
+                    {% for  %}
+                    <ul>
+                        <li><a href="">Batatas fritas, biscoitos e folhados</a></li>
+                        <li><a href="">Palitos de carne seca e carne seca</a></li>
+                        <li><a href="">Pretzels e pipoca</a></li>
+                        <li><a href="">Lanches doces e barras energéticas</a></li>
+                    </ul>  
+                </div> {% endcomment %}
+
+                <form id="filtrar_produtos" action="{{sub_categoria_selecionada.get_absolute_url}}"method="GET">
+
+                    <div class="produto-links" >
+                        <div class="produto-links-Tit" id="produto-links-Tit">
+                            <a href="">Comprar por ingredientes</a>
+                            <i class="bi bi-check-lg button1"></i>
+                        </div>
+
+                    <ul id="menu_ul1">
+                        {% for ingrediente in ingredientes %}
+                        <li>
+                            <a href="" class="lista__link">
+                                <input type="checkbox" name="ingredientes" value="{{ingrediente.id}}" {% if filtro_ingredientes and  ingrediente.id in filtro_ingredientes %} checked {% endif %}>
+                                <span class="lista-titulos">{{ingrediente.nome}}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    </div>
+
+                    <div class="produto-links">
+                        <div class="produto-links-Tit">
+                            <a href="">Categorias</a>
+                            <i class="bi bi-check-lg button2"></i>
+                        </div>
+
+                    <ul class="categoria__lista-link" id="menu_ul2">
+                        {% for categoria in categorias %}
+                        <li>
+                            <a href="" class="lista__link">
+                                <input type="checkbox" name="categorias" value="{{categoria.id}}" {% if filtro_categorias and categoria.id in filtro_categorias %} checked {% endif %}>
+                                <span>{{categoria.nome}}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    </div>
+
+                    <div class="produto-links">
+                        <div class="produto-links-Tit">
+                            <a href="">Marca</a>
+                            <i class="bi bi-check-lg button3"></i>
+                        </div>
+
+                    <ul class="marca__lista-link" id="menu_ul3">
+                        {% for marca in marcas %}
+                        <li>
+                            <a href="" class="lista__link">
+                                <input type="checkbox" name="marcas" value="{{marca.id}}" {% if filtro_marcas and  marca.id in filtro_marcas %} checked {% endif %}>
+                                <span>{{marca.nome}}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    </div>
+                </form>
+            </div>
+          </div>
+
+          <div class="leaude__categoria-contaeiner">
+            <div class="leaude__categoria-conteudo">
+                <span><a href="{% url 'produtos:home' %}">Inicio</a> / <a href="{{categoria.get_absolute_url}}">{{categoria.nome}}</a> / {{sub_categoria_selecionada.nome}}</span>
+            {{sub_categoria_selecionada.descricao|safe}}
+            </div>
+
+            <div class="leuade__produto-categoria">
+                <ul>
+                    {% for produto in produtos %}
+                    <li>
+                       {% include 'partials/adicionar_produto_ao_carrinho.html' %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div><!--Fim div leaude__naocontemglutem-contaeiner-->
+
+       </div> <!--Fim da div compre__container -->
+    </section>
+
+{% endblock content %}

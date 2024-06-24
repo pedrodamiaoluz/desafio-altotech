@@ -17,8 +17,8 @@
                         {% for categoria in categorias %}
                         <li class="mySlides fade">
                             <a href="{{categoria.get_absolute_url}}">
-                                {% if categoria.imagem %}
-                                <img  src="{{categoria.imagem.url}}" alt="">
+                                {% if categoria.imagem_principal %}
+                                <img  src="{{categoria.imagem_principal.url}}" alt="">
                                 {% endif %}
                                 <span>{{categoria.nome}}</span>
                             </a>
@@ -31,13 +31,12 @@
 
         <section>
             <div class="alimentos__integrais-container">
+            {% if categoria_destaque and produtos_destaques %}
                 <div class="integrais_titulos">
-                    <h1>Escolhas alimentos integrais veganas</h1>
-                    {% if categoria_destaque %}
+                    <h1>Escolhas alimentos {{categoria_destaque.nome}}</h1>
 
                      <span><a href="{{categoria_destaque.get_absolute_url}}">Ver tudo</a><i class="bi bi-chevron-double-right"></i>
                      </span>
-                    {% endif %}
                 </div>
                 <div class="alimentos_integrais">
                         {% if produtos_destaques %}
@@ -50,6 +49,15 @@
                     </ul>
                     {% endif %}
                 </div>
+            {% elif categoria_destaque %}
+                <div class="integrais_titulos">
+                    <h1> Categoria {{categoria_destaque}} sem produtos</h1>
+                </div>
+            {% else %}
+                <div class="integrais_titulos">
+                    <h1>Sem Categoria Destaque</h1>
+                </div>
+            {% endif %}
             </div>
         </section>
 

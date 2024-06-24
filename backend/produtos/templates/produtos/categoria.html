@@ -1,96 +1,72 @@
 {% extends "base.html" %}
 {% load static %}
+{% load filters %}
 
 {% block title %} Compre Por Categoria {% endblock title %}
 
 {% block content %}
+{% include 'partials/messages.html' %}
 
-{% include "partials/messages.html" %}
-
- <button type= "submit" form='filtrar_produtos'>Testando Filtro</button> {% comment %} falta adicionar o css {% endcomment %}
+    <div class="container">
+        <div class="leaude_contaeiner">
+            <section class="compre_por_categoria">
+                <div class="compre_por_categoria-leaude">
+                    <div class="leaude_conteudo">
+                        <span><a href="{% url 'produtos:home' %}">Inicio</a> / {{categoria_selecionada.nome}}</span>
+                        {{categoria_selecionada.descricao|safe}}
+                    </div>
+                    {% if categoria_selecionada.imagem_categorias %}
+                    <div class="leaude_img">
+                        <img src="{{categoria_selecionada.imagem_categorias.url}}" alt="">
+                    </div>
+                    {%  endif %}
+                </div>
+            </section>
+            </div><!--Fim da div leaude_contaeiner-->
+    </div><!--Fim da div contaeiner-->
 
     <section class="compre_por_categoria">
-       <div class="compre__conteudo-container">
+       <div class="compre__container">
           <div class="compre_produto">
+            <h2>Selecione uma categoria</h2>
             <div class="compre_produto-links">
-                <form id="filtrar_produtos" action="{% url 'produtos:categoria' categoria_id %}"method="GET">
 
-                    <div class="produto-links" >
-                        <div class="produto-links-Tit" id="produto-links-Tit">
-                            <a href="">Comprar por ingredientes</a>
-                            <i class="bi bi-check-lg button1"></i>
-                        </div>
-
-                    <ul id="menu_ul1">
-                        {% for ingrediente in ingredientes %}
-                        <li>
-                            <a href="" class="lista__link">
-                                <input type="checkbox" name="ingredientes" value="{{ingrediente.id}}" {% if filtro_ingredientes and  ingrediente.id in filtro_ingredientes %} checked {% endif %}>
-                                <span class="lista-titulos">{{ingrediente.nome}}</span>
-                            </a>
-                        </li>
+            {% for categoria in categorias %}
+                <details {% if categoria_selecionada == categoria %}open{% endif %}>
+                    <summary><a 
+{% if categoria_selecionada == categoria %}class="lanche_style"{% endif %} href="{{categoria.get_absolute_url}}">{{categoria.nome}}</a></summary>
+                    {% if categoria.sub_categorias.exists %}
+                    <ul>
+                        {% for sub_categoria in categoria.sub_categorias.all %}
+                        <li><a href="{{sub_categoria.get_absolute_url}}">{{sub_categoria.nome}}</a></li>
                         {% endfor %}
                     </ul>
-                    </div>
-
-                    <div class="produto-links">
-                        <div class="produto-links-Tit">
-                            <a href="">Categorias</a>
-                            <i class="bi bi-check-lg button2"></i>
-                        </div>
-
-                    <ul class="categoria__lista-link" id="menu_ul2">
-                        {% for categoria in categorias %}
-                        <li>
-                            <a href="" class="lista__link">
-                                <input type="checkbox" name="categorias" value="{{categoria.id}}" {% if filtro_categorias and categoria.id in filtro_categorias %} checked {% endif %}>
-                                <span>{{categoria.nome}}</span>
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    </div>
-
-                    <div class="produto-links">
-                        <div class="produto-links-Tit">
-                            <a href="">Marca</a>
-                            <i class="bi bi-check-lg button3"></i>
-                        </div>
-
-                    <ul class="marca__lista-link" id="menu_ul3">
-                        {% for marca in marcas %}
-                        <li>
-                            <a href="" class="lista__link">
-                                <input type="checkbox" name="marcas" value="{{marca.id}}" {% if filtro_marcas and  marca.id in filtro_marcas %} checked {% endif %}>
-                                <span>{{marca.nome}}</span>
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    </div>
-                </form>
+                    {% endif %}
+                </details>
+            {% endfor %}
             </div>
           </div>
 
-          <div class="leaude__categoria-contaeiner">
-            <div class="leaude__categoria-conteudo">
-                <span><a href="../catogoria0.html">Inicio</a> / Escolhas veganas caseiras sem / <a href="">caseiras com alto teor de proteína</a></span>
-                <h1>Escolhas veganas ricas em proteínas</h1>
-                <p>Optar por uma alimentação vegana rica em proteínas é possível e benéfico. Leguminosas como lentilhas e grão-de-bico, produtos de soja como tofu e tempeh, grãos como quinoa e amaranto, além de nozes, sementes e manteigas de nozes são excelentes fontes de proteína. Substitutos de carne à base de plantas e vegetais como espinafre e brócolis também ajudam a garantir uma dieta equilibrada e nutritiva. Essas opções asseguram uma alimentação vegana completa e saudável.</p>
-            </div>
+          <div class="compre__catedoria_produto">
+        {% for sub_categoria in sub_categorias  %}
+               <div class="compre__produto-liste">
+                   <div class="produtos_titulo">
+                       <h1>{{sub_categoria.nome}}</h1>
+                       <span><a href="{{sub_categoria.get_absolute_url}}">Ver tudo</a><i class="bi bi-chevron-double-right"></i></span>
+                   </div>
 
-            <div class="leuade__produto-categoria">
-                <ul>
-                    {% for produto in produtos %}
-                    <li>
-                       {% include 'partials/adicionar_produto_ao_carrinho.html' %}
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div><!--Fim div leaude__naocontemglutem-contaeiner-->
-
-       </div> <!--Fim da div compre__container -->
+                   <ul>
+                       {% for produto in sub_categoria.produtos.all|fatiar_lista:5 %}
+                      <li>
+                          {% include 'partials/adicionar_produto_ao_carrinho.html' %}
+                      </li>
+                       {% endfor %}
+                   </ul><!--Fim da ul produto_liste-->
+               </div>
+              {% endfor %}
+              </div>
+         </div>
+       </div><!--Fim da div compre__container-->
     </section>
 
 {% endblock content %}

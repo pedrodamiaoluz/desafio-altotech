@@ -7,3 +7,4 @@ Markdown==3.6
 pillow==10.3.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
+django-summernote==0.8.20.0

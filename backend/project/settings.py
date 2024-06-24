@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'produtos',
     'pedidos',
     'carrinho',
+
+    'django_summernote',
 ]
 
 AUTH_USER_MODEL = 'usuarios.CustomUser'
@@ -78,6 +80,9 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            'libraries': {
+                'filters': 'produtos.templatestags.filters',
+            }
         },
     },
 ]
@@ -170,3 +175,27 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+            ['style', ['style', ]],
+            ['font', ['bold', 'italic', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph', 'hr', ]],
+            ['view', ['fullscreen', 'codeview', 'undo', 'redo']],
+        ],
+        'codemirror': {
+            'mode': 'htmlmixed',
+            'lineNumbers': 'true',
+            'lineWrapping': 'true',
+            'theme': 'dracula',
+        },
+    },
+    'css': (
+        '//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css',
+    ),
+}

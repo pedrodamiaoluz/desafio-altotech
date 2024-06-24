@@ -22,8 +22,8 @@
                          {% for categoria in categorias %}
                         <li>
                             <a href="{{categoria.get_absolute_url}}">
-                                {% if categoria.imagem %}
-                                <img  src="{{categoria.imagem.url}}" alt="">
+                                {% if categoria.imagem_principal %}
+                                <img  src="{{categoria.imagem_principal.url}}" alt="">
                                 {% endif %}
                                 <span>{{categoria.nome}}</span>
                             </a>
