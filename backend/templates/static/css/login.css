@@ -1,10 +1,9 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-.login__container,
-.novo__cliente,
-.esqueceu__senha-container {
+.login__container, .novo__cliente, .esqueceu__senha-container{
     background-color: #ffffff;
     max-width: 600px;
     margin: 80px auto;
@@ -15,7 +14,7 @@ body {
     align-items: center;
 }
 
-.login__container form input {
+.login__container form input{
     width: 500px;
     height: 40px;
     margin-bottom: 10px;
@@ -23,9 +22,7 @@ body {
     outline: none;
 }
 
-.login__container form .button_cliente,
-.button_clien a,
-.button__esqueceu-senha button {
+.login__container form .button_cliente, .button_clien a, .button__esqueceu-senha button{
     text-decoration: none;
     color: #fff;
     font-weight: 600;
@@ -36,23 +33,22 @@ body {
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition: background-color .4s ease;
+    
 }
 
-.login__container form .button_cliente:hover,
-.button_clien a:hover,
-.button__esqueceu-senha button:hover {
+.login__container form .button_cliente:hover, .button_clien a:hover, .button__esqueceu-senha button:hover{
     background-color: transparent;
     border: 1px solid #56C033;
     color: #569641;
 }
 
 
-.login__container form span {
+.login__container form span{
     padding: 8px 0;
     text-align: center;
 
-    button {
+    button{
         text-decoration: none;
         color: #354132;
         font-weight: 500;
@@ -63,18 +59,16 @@ body {
     }
 }
 
-.login__container form label {
+.login__container form label{
     padding: 5px 0;
 }
 
-.login__container form {
+.login__container form{
     display: flex;
     flex-direction: column;
 }
 
-.login_conteudo h1,
-.cliente h1,
-.senha__container-titulo h1 {
+.login_conteudo h1, .cliente h1, .senha__container-titulo h1{
     text-align: center;
     font-size: 40px;
     padding-top: 20px;
@@ -82,8 +76,7 @@ body {
     font-weight: bold;
 }
 
-.login_conteudo p,
-.cliente p {
+.login_conteudo p, .cliente p{
     padding: 20px;
     text-align: center;
 }
@@ -91,13 +84,13 @@ body {
 
 /*configuração do novo cliente*/
 
-.button_clien {
-    margin: 20px auto;
+.button_clien{
+    margin: 30px auto;
 }
 
 /*configuração do formulario de cadatre-se*/
 
-.cadastre-se {
+.cadastre-se{
     background-color: #fff;
     max-width: 600px;
     margin: 50px auto;
@@ -109,46 +102,39 @@ body {
     box-shadow: 0 0 4px #bdbcbc;
 }
 
-.cadastre-se .cadastre__se-conteudo h1 {
-    font-size: 40px;
-    font-weight: bold;
-    color: #2E332C;
+.cadastre-se .cadastre__se-conteudo h1{
+     font-size: 40px;
+     font-weight: bold;
+     color: #2E332C;
 }
 
-.cadastre__se-conteudo p,
-.senha__container-titulo p {
+.cadastre__se-conteudo p, .senha__container-titulo p{
     text-align: center;
     margin: 20px 0;
-}
+ }
 
-.cadastre-se form {
+ .cadastre-se form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+ }
 
-.cadastre-se form input {
+ .cadastre-se form input{
     width: 500px;
     height: 40px;
     padding: 5px;
     outline: none;
-}
+ }
 
-.cadastre-se form label {
+ .cadastre-se form label{
     padding: 8px 0;
-}
+ }
 
-.from__erro{
-    background-color: transparent; 
-    margin: 20px 0 5px 0;
-    color: red;
-}
-
-.button_cadastro {
+ .button_cadastro{
     margin: 40px auto 20px auto;
-}
+ }
 
-.button_cadastro button {
+ .button_cadastro button{
     text-decoration: none;
     color: #fff;
     font-weight: 600;
@@ -160,41 +146,40 @@ body {
     transition: .7s;
     border: none;
     cursor: pointer;
-}
+ }
 
-.button_cadastro button:hover {
+ .button_cadastro button:hover{ 
     background-color: transparent;
     border: 1px solid #56C033;
     color: #569641;
 }
 
+ /*configuração sobre Esqueceu senha*/
 
-/*configuração sobre Esqueceu senha*/
-
-.esqueceu__senha-container form {
+ .esqueceu__senha-container form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+ }
 
-.esqueceu__senha-container form label {
+ .esqueceu__senha-container form label{
     padding: 8px 0;
-}
+ }
 
-.esqueceu__senha-container form input {
+ .esqueceu__senha-container form input{
     width: 500px;
     height: 40px;
     padding: 5px;
     outline: none;
-}
+ }
 
-.button__esqueceu-senha {
-    margin: 30px auto;
-}
+ .button__esqueceu-senha{
+    margin: 20px auto;
+ }
 
-/*Configurações sobre nova senha*/
+ /*Configurações sobre nova senha*/
 
-.container_novasenha {
+.container_novasenha{
     max-width: 600px;
     margin: 50px auto;
     display: flex;
@@ -202,43 +187,42 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px 0;
-    box-shadow: 0 0 4px #bdbcbc;
-    ;
+    box-shadow: 0 0 4px #bdbcbc;;
 }
 
-.titulo__novasenha h1 {
+.titulo__novasenha h1{
     font-size: 40px;
-    font-weight: bold;
-    color: #2E332C;
+     font-weight: bold;
+     color: #2E332C;
 }
 
-.titulo__novasenha p {
+.titulo__novasenha p{
     text-align: center;
     margin: 20px 0;
 }
 
-.container_novasenha form {
+.container_novasenha form{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.container_novasenha form input {
+.container_novasenha form input{
     width: 500px;
     height: 40px;
     padding: 5px;
     outline: none;
 }
 
-.container_novasenha form label {
+.container_novasenha form label{
     padding: 8px 0;
 }
 
-.button__novasenha {
-    margin: 40px auto 20px auto;
+.button__novasenha{
+  margin: 20px auto 0 auto;
 }
 
-.button__novasenha button {
+.button__novasenha button{
     text-decoration: none;
     color: #fff;
     font-weight: 600;
@@ -251,8 +235,8 @@ body {
     transition: .2s;
     cursor: pointer;
 
-
-    &:hover {
+  
+    &:hover{  
         background-color: transparent;
         border: 1px solid #56C033;
         color: #569641;

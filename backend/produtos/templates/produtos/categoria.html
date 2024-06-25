@@ -6,7 +6,6 @@
 
 {% block content %}
 {% include 'partials/messages.html' %}
-
     <div class="container">
         <div class="leaude_contaeiner">
             <section class="compre_por_categoria">
@@ -32,17 +31,18 @@
             <div class="compre_produto-links">
 
             {% for categoria in categorias %}
-                <details {% if categoria_selecionada == categoria %}open{% endif %}>
-                    <summary><a 
-{% if categoria_selecionada == categoria %}class="lanche_style"{% endif %} href="{{categoria.get_absolute_url}}">{{categoria.nome}}</a></summary>
+                <div class="produto-links-Tit" id="produto-links-Tit">
+                    <a href="{{categoria.get_absolute_url}}">{{categoria.nome}}</a>
+                    <i class="bi bi-check-lg" onclick="action({{categoria.id}})" ></i>
+                </div>
+
                     {% if categoria.sub_categorias.exists %}
-                    <ul>
+                    <ul class="categoria__lista-link" id="menu_ul{{categoria.id}}">
                         {% for sub_categoria in categoria.sub_categorias.all %}
                         <li><a href="{{sub_categoria.get_absolute_url}}">{{sub_categoria.nome}}</a></li>
                         {% endfor %}
                     </ul>
                     {% endif %}
-                </details>
             {% endfor %}
             </div>
           </div>
@@ -69,4 +69,5 @@
        </div><!--Fim da div compre__container-->
     </section>
 
+    {% include 'partials/lista_categoria_js.html' %}
 {% endblock content %}
