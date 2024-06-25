@@ -265,7 +265,7 @@ header>.container {
 }
 
 .integrais_titulos h1{
-   font-size: 15px;
+   font-size: 30px;
 }
 
 .integrais_titulos span {
@@ -307,10 +307,11 @@ header>.container {
 }
 
 .alimentos_integrais ul li img {
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
     width: 150px;
     height: 150px;
     object-fit: cover;
+    
 }
 
 .alimentos_integrais ul li a {
