@@ -86,12 +86,19 @@ header > .carrinho__container{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    padding: 5px;
+    gap: 20px;
 }
 
 .carrinho__conteudo-img img{
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
+
+span.produto-title {
+    width: 100px;
+    text-align: justify;
 }
 
 .remover__quantidade{

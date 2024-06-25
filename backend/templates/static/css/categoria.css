@@ -49,7 +49,7 @@
 
 .escolha__categorias{
     background-color: transparent;
-    margin-left: 130px;
+    margin-right: 130px;
 }
 
 .escolha__categorias h1{
@@ -58,11 +58,12 @@
 }
 
 .categoria ul{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     flex-wrap: wrap;
     padding: 0 2%;
     align-items: center;
-    gap: 18px;
+    gap: 15px;
 }
 
 .categoria ul li{
@@ -117,7 +118,7 @@
     }
 }
 
-.compre_produto-links{
+.compre_produto-links {
     background-color: transparent;
     width: 300px;
     display: flex;
@@ -146,44 +147,6 @@
 }
 
 .compre__produto__links-lista li a:hover{
-    color: #569641;
-}
-
-
-.compre_produto-links details summary{
-    color: #000;
-    cursor: pointer;
-}
-
-.compre_produto-links details summary a{
-    text-decoration: none;
-    color: #2E332C;
-    font-size: 15px;
-    font-weight: 500;
-    padding-left: 20px;
-}
-
-.compre_produto-links details summary .lanche_style, .compre_produto-links details summary .chocolated_style, .compre_produto-links details summary .chocolated_style, .compre_produto-links details summary .queijoovoslaticinos__style, .compre_produto-links details summary .carnefrutosmar_style, .compre_produto-links details summary .produtoanimaiscompanhia_style, .compre_produto-links details summary .produtopanificacao_style, .compre_produto-links details summary .fundamentosdespensa_style, .compre_produto-links details summary .produtosdepanificação_style, .compre_produto-links details summary .fundamentosdadespensa_style{
-    color: #56C033;
-    font-weight: 600;
-}
-
-.compre_produto-links details ul{
-    list-style-type: none;
-    padding: 20px 0 5px 30px;
-    font-size: 15px;
-}
-
-.compre_produto-links details ul li{
-    padding: 5px 0;
-}
-
-.compre_produto-links details ul li a{
-    text-decoration: none;
-    color: #000;
-}
-
-.compre_produto-links details ul li a:hover{
     color: #569641;
 }
 
@@ -318,6 +281,12 @@
     gap: 30px;
 }
 
+input.quantidade {
+    border: 1px solid #4EEA18;
+    padding: 0 5px;
+    outline: none;
+}
+
 .lisye_quantidade{
     border: 1px solid #4EEA18;
     cursor: pointer;
@@ -403,6 +372,7 @@
 
 .compre_produto-links form .produto-links-Tit{
     padding-top: 15px;
+    width: 250px;
     display: flex;
     justify-content: space-between;
     justify-items: center;
@@ -491,12 +461,13 @@
 /*------------------------------------------------------------------*/
 
 .leuade__produto-categoria ul{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style-type: none;
+    gap: 15px;
 }
 
-.leuade__produto-categoria ul li{
+.leuade__produto-categoria ul li form{
     background-color: #fff;
     width: 263px;
     box-shadow: 0 0 7px #bdbcbc;

@@ -33,7 +33,7 @@ section{
 
 .pagination {
     display: flex;
-    padding-left: 50px;
+    padding-left: 100px;
     list-style: none;
     border-radius: .25rem;
     margin: 0 auto;
@@ -50,6 +50,25 @@ section{
     color: #fff;
     background-color: #007C01;
     border-color: #28a745;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: #000;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
 }
 
 /*-----------------------------------*/
@@ -140,7 +159,11 @@ header > .container{
 
 .titulo{
     color: #000;
-    margin: 8rem 0 2rem 2%;
+    margin: 8rem 0 2rem 0;
+}
+
+.titulo h1{
+    font-size: 1.5rem;
 }
 
 .categoria__container ul{
@@ -287,7 +310,7 @@ header > .container{
 }
 
 .integrais_titulos h1{
-   font-size: 30px;
+   font-size: 1.5rem;
 }
 
 .integrais_titulos span {
@@ -307,11 +330,12 @@ header > .container{
 
 .alimentos_integrais ul{
     list-style-type: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-around;
 }
 
-.alimentos_integrais ul li{
+.alimentos_integrais ul li form{
     background-color: #fff;
     width: 220px;
     box-shadow: 0 0 7px #bdbcbc;
@@ -350,6 +374,7 @@ header > .container{
     font-weight: 600;
     border: none;
     cursor: pointer;
+    outline: none;
 }
 
 
@@ -389,9 +414,15 @@ header > .container{
     width: 500px;
 }
 
+.tornar__veg-conteudo h1{
+    font-size: 1.5rem;
+}
+
+
 .tornar__veg-conteudo p{
-    padding: 30px 0;
+    padding: 5px 0;
     text-align: justify;
+    font-size: 1rem;
 }
 
 /*Configurações sobre as marcas favoritas*/
