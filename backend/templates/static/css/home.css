@@ -28,6 +28,31 @@ section {
     margin: 0 auto;
 }
 
+/*-----------------------------------*/
+
+.pagination {
+    display: flex;
+    padding-left: 50px;
+    list-style: none;
+    border-radius: .25rem;
+    margin: 0 auto;
+}
+
+.page-item:first-child .page-link {
+    margin-left: 0;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007C01;
+    border-color: #28a745;
+}
+
+/*-----------------------------------*/
+
 /*Configurações do cobeçalho*/
 
 header>.container {
