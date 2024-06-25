@@ -16,8 +16,8 @@
     <!--Fim da Fonte do Google-->
     
     <link rel="shortcut icon" href="/pages/img/v-mark-vegan-logo-5.png" type="image/x-icon">
-
-    <script async src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="./slide.js" defer></script>
     <title>Veganos Naturais</title>
 </head>
 <body>
@@ -53,60 +53,61 @@
     </header>
 
     <main>
-        <section><!--minhas Categorias-->
-             <div class="container">
-                 <div class="categoria__container">
-                     <div class="titulo">
-                         <h1>Compre por categoria</h1>
-                     </div>
-                    <ul>
-                        <li class="mySlides fade">
-                            <a href="./ComprePorCategoria/lanche.html">
-                                <img src="/pages/img/lanches.jpg" alt="">
-                                <span>Lanche</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/panificaçao.jpg" alt="">
-                                <span>Produtos de panificação</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/carnedo-mar.jpg" alt="">
-                                <span>Carne e Frutos do Mar</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/ovos.jpg" alt="">
-                                <span>Queijo, Ovos e Laticínios</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/doces.jpg" alt="">
-                                <span>Chocolate, Doces e Doces</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/despensa.jpg" alt="">
-                                <span>Fundamentos da despensa</span>
-                            </a>
-                        </li>
-                        <li class="mySlides fade">
-                            <a href="#">
-                                <img src="/pages/img/nutricao-cachorro.jpg" alt="">
-                                <span>Produtos para animais de companhia</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <!--<div style="text-align: center;">
-                         <span class="dot" onclick="correntSlides(1)"></span>
-                         <span class="dot" onclick="correntSlides(2)"></span>
-                    </div>-->
+        <section class="section__minhas-categorias"><!--minhas Categorias-->
+             <div class="container">       
+                 <div class="categoria__container nova">
+                    <div class="titulo">
+                        <h1>Compre por categoria</h1>
+                    </div>            
+                        <ul class="slide_ul ul">
+                            <li class="mySlides fade">
+                                <a href="./ComprePorCategoria/lanche.html">
+                                    <img class="item corent-item" src="/pages/img/lanches.jpg" alt="">
+                                    <span>Lanche</span>
+                                </a>
+                            </li>
+                            <li class="mySlides fade">
+                                <a href="#">
+                                    <img class="item corent-item" src="/pages/img/panificaçao.jpg" alt="">
+                                    <span>Produtos de panificação</span>
+                                </a>
+                            </li>
+                            <li class="mySlides fade">
+                                <a href="#">
+                                    <img class="item corent-item" src="/pages/img/carnedo-mar.jpg" alt="">
+                                    <span>Carne e Frutos do Mar</span>
+                                </a>
+                            </li>
+                            <li class="mySlides fade">
+                                <a href="#">
+                                    <img class="item corent-item" src="/pages/img/ovos.jpg" alt="">
+                                    <span>Queijo, Ovos e Laticínios</span>
+                                </a>
+                            </li>
+                            <li class="mySlides fade">
+                                <a href="#">
+                                    <img class="item corent-item" src="/pages/img/doces.jpg" alt="">
+                                    <span>Chocolate, Doces e Doces</span>
+                                </a>
+                            </li>
+                            <li class="mySlides fade">
+                                <a href="#">
+                                    <img class="item corent-item" src="/pages/img/despensa.jpg" alt="">
+                                    <span>Fundamentos da despensa</span>
+                                </a>
+                            </li>
+                            <li class="mySlides fade">
+                                <a href="#">
+                                    <img class="item corent-item" src="/pages/img/nutricao-cachorro.jpg" alt="">
+                                    <span>Produtos para animais de companhia</span>
+                                </a>
+                            </li>
+                        </ul>                 
+                        <div class="slide_button">
+                            <i class="bi bi-chevron-left constrol"></i>
+                            <i class="bi bi-chevron-right constrol"></i>
+                        </div>
+                    
                  </div><!--Fim da div categoria__container-->
              </div><!--Fim da div container-->
         </section>
