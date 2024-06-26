@@ -157,6 +157,41 @@ header > .container{
     color: #000;
 }
 
+/*------Resultado da Pesquisa, Amostra do Produto--------*/
+
+section.resultado {
+    display: flex;
+    flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.resultado__da_pesquisa form {
+    background-color: #fff;
+    list-style-type: none;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 7px #bdbcbc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.resultado__da_pesquisa form img {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+}*/
+
+/*-------------------------------------------------------*/
+
 /*Configurações sobre as Categorias*/
 
 .titulo{
