@@ -34,19 +34,23 @@ class CarrinhoMixinView(View):
 
     def get_quantidade_ou_redirect(self):
         quantidade = self.request.POST.get("quantidade", None)
-        _redirect = redirect(self.request.META.get('HTTP_REFERER'))
-        if quantidade is None:
-            messages.error(
-                self.request,
-                "A quantidade do produto não foi fornecida ou não é um número inteiro"
-            )
-            return _redirect
-        quantidade = int(quantidade)
-        if quantidade <= 0:
-            messages.warning(self.request, "A quantidade do produto deve ser maior que Zero")
-            return redirect
+        redirecionar = True
+        if quantidade is not None:
+            try:
+                quantidade = int(quantidade)
+                if quantidade <= 0:
+                    messages.warning(self.request, "A quantidade do produto deve ser maior que Zero")
+                else:
+                    redirecionar = False
+            except ValueError:
+                messages.error(
+                    self.request,
+                    "A quantidade do produto não é um número inteiro"
+                )
+        else:
+            messages.warning(self.request, "Quantidade do produto não fornecida")
 
-        return quantidade
+        return (redirecionar, quantidade)
 
 
 class CarrinhoView(CarrinhoMixinView):
@@ -75,7 +79,9 @@ class CarrinhoView(CarrinhoMixinView):
 class CarrinhoAtualizarProdutoView(CarrinhoMixinView):
 
     def post(self,request, *args, **kwargs):
-        quantidade = self.get_quantidade_ou_redirect()
+        redirecionar, quantidade = self.get_quantidade_ou_redirect()
+        if redirecionar:
+            return redirect(request.META.get('HTTP_REFERER'))
 
         item = self.get_item_carrinho_or_404()
         item.quantidade = quantidade
@@ -87,8 +93,10 @@ class CarrinhoAtualizarProdutoView(CarrinhoMixinView):
 class CarrinhoAdicionarProdutoView(CarrinhoMixinView):
 
     def post(self, request, *args, **kwargs):
-        quantidade = self.get_quantidade_ou_redirect()
+        redirecionar, quantidade = self.get_quantidade_ou_redirect()
         _redirect = redirect(request.META.get('HTTP_REFERER'))
+        if redirecionar:
+            return _redirect
 
         try:
             item = self.carrinho.itens.get(produto_id=self.produto.id)

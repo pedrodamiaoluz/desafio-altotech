@@ -10,6 +10,7 @@
     <header>
         {% include "partials/_header.html" %}
     </header>
+    {% block messages %}{% include 'partials/messages.html' %}{% endblock messages %}
     {% block content %}{% endblock content %}
     {% include 'partials/pagination.html' %}
     <footer>

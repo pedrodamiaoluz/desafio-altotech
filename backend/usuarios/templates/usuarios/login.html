@@ -11,7 +11,7 @@
             <p>Se você tiver uma conta, faça login com seu endereço de e-mail.</p>
         </div>
         <form action="{% url 'usuarios:login' %}", method='POST'>{% csrf_token %}
-            {% include "partials/messages.html" %}
+            {% block messages %}{% include 'partials/messages.html' %}{% endblock messages %}
 
             {% for field in form %}
                 <label for="{{field.id_for_label}}">{{field.label}}: </label>

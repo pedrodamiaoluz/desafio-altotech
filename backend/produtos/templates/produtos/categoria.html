@@ -5,7 +5,7 @@
 {% block title %} Compre Por Categoria {% endblock title %}
 
 {% block content %}
-{% include 'partials/messages.html' %}
+
     <div class="container">
         <div class="leaude_contaeiner">
             <section class="compre_por_categoria">
@@ -35,9 +35,8 @@
             {% for categoria in categorias %}
                 <div class="produto-links-Tit" id="produto-links-Tit">
                     <a href="{{categoria.get_absolute_url}}">{{categoria.nome}}</a>
-                    <i class="bi bi-check-lg" onclick="action({{categoria.id}})" ></i>
+                    <i class="bi bi-check-lg" onclick="action_categoria({{categoria.id}})"></i>
                 </div>
-
                     {% if categoria.sub_categorias.exists %}
                     <ul class="categoria__lista-link" id="menu_ul{{categoria.id}}">
                         {% for sub_categoria in categoria.sub_categorias.all %}
@@ -72,5 +71,5 @@
        </div><!--Fim da div compre__container-->
     </section>
 
-    {% include 'partials/lista_categoria_js.html' %}
+    {% comment %} {% include 'partials/lista_categoria_js.html' %} {% endcomment %}
 {% endblock content %}

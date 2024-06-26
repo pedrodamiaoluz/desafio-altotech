@@ -11,7 +11,7 @@
         </div>
 
         <form action="{% url 'usuarios:esqueceu_senha' %}" method="POST">
-            {% include 'partials/messages.html' %}
+            {% block messages %}{% include 'partials/messages.html' %}{% endblock messages %}
             {% include 'partials/_form.html' %}
             <div class="button__esqueceu-senha">
                 <button type="submit"> Continuar </button>
