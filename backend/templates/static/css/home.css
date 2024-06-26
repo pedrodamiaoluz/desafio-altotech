@@ -33,10 +33,10 @@ section{
 
 .pagination {
     display: flex;
-    padding-left: 100px;
+    padding-left: 140px;
     list-style: none;
     border-radius: .25rem;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .page-item:first-child .page-link {

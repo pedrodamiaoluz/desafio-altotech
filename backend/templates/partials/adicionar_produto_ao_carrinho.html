@@ -4,7 +4,7 @@
     {% endif %}
     <p>{{produto.nome}}</p>
     <div class="preco_quantidade">
-        <span>{{produto.preco}}</span>
+        <span>R${{produto.preco}}</span>
         <input class="quantidade" type="number" value="0" min="1" max="{{produto.estoque}}" name="quantidade">
     </div>
         <input type="hidden" value="{{produto.id}}" name="produto_id">
