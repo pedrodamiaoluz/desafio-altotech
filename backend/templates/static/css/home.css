@@ -108,7 +108,7 @@ header > .container{
     
 }
 
-.input__pesquisa{
+.input__pesquisa form{
     background-color: #d1cdcd54;
     width: 300px;
     height: 40px;
@@ -117,9 +117,11 @@ header > .container{
     border-radius: 30px;
 }
 
-.input__pesquisa .pesquisa{
+.input__pesquisa form button{
     background-color: #56C033;
     height: 40px;
+    border: none;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,7 +132,7 @@ header > .container{
     font-weight: bold;
 }
 
-.input__pesquisa input{
+.input__pesquisa form input{
   background-color: transparent;   
   border: none;
   padding: 0 100px 0 12px;
@@ -167,7 +169,7 @@ header > .container{
 }
 
 .categoria__container .slide_ul{
-    background-color: red;
+    background-color: #fff;
     width: 100%;
     padding: 20px 2%;
     position: relative;
@@ -181,16 +183,15 @@ header > .container{
 }
 
 .categoria__container .ul{
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    /*-ms-overflow-style: none;
-    scrollbar-width: none;*/
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
 } 
 
-/*.ul::-webkit-scrollbar{
+.ul::-webkit-scrollbar{
     display: none;
-}*/
+}
 
 .categoria__container .slide_button {
     display: flex;
