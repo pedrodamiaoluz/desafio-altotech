@@ -16,6 +16,7 @@
     <div class="flex">
         <div class="input__pesquisa">
             <form action="{% url 'produtos:produtos' %}" method='GET' >
+<<<<<<< HEAD
                 <input type="search" placeholder="Pesquise produto, marcas, etc..." name="search" >
                     <button type="submit">
                 <i class="bi bi-search"></i>
@@ -23,6 +24,15 @@
                 </form>
     </div>
        <div class="header__icons">
+=======
+                <input type="text" placeholder="Pesquise produto, marcas, etc..." name="search" >
+                    <button type="submit">
+                <i class="bi bi-search"></i>
+                    </button> 
+            </form>
+        </div>
+         <div class="header__icons">
+>>>>>>> refs/remotes/origin/lidiana-branch
            {% if request.user.is_authenticated %}
            <a href="{% url 'usuarios:logout' %}"><i class="bi bi-box-arrow-right"></i>
            {% else %}
