@@ -28,7 +28,9 @@
        <div class="compre__container">
           <div class="compre_produto">
             <h2>Selecione uma categoria</h2>
-            <div class="compre_produto-links">
+            <form>
+
+            <div class="compre_produto-links produto-links">
 
             {% for categoria in categorias %}
                 <div class="produto-links-Tit" id="produto-links-Tit">
@@ -45,6 +47,7 @@
                     {% endif %}
             {% endfor %}
             </div>
+        </form>
           </div>
 
           <div class="compre__catedoria_produto">

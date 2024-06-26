@@ -13,18 +13,16 @@
        <div class="compre__conteudo-container">
           <div class="compre_produto">
             <div class="compre_produto-links">
-
-                {% comment %} <div class="compre__produto__links-lista">
-                    
+                {% if sub_categorias %}
+                <div class="compre__produto__links-lista">
                     <h3>Ver todos os Produtos</h3>
-                    {% for  %}
                     <ul>
-                        <li><a href="">Batatas fritas, biscoitos e folhados</a></li>
-                        <li><a href="">Palitos de carne seca e carne seca</a></li>
-                        <li><a href="">Pretzels e pipoca</a></li>
-                        <li><a href="">Lanches doces e barras energéticas</a></li>
-                    </ul>  
-                </div> {% endcomment %}
+                    {% for sub_categoria in sub_categorias %}
+                        <li><a href="{{sub_categoria.get_absolute_url}}">{{sub_categoria.nome}}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
 
                 <form id="filtrar_produtos" action="{{sub_categoria_selecionada.get_absolute_url}}"method="GET">
 

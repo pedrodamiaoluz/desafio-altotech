@@ -7,24 +7,29 @@
 
     <main>
         {% include 'partials/messages.html' %}
-        <section><!--minhas Categorias-->
+        <section class="section__minhas-categorias"><!--minhas Categorias-->
              <div class="container">
-                 <div class="categoria__container">
-                     <div class="titulo">
-                         <h1>Compre por categoria</h1>
-                     </div>
-                    <ul>
+                 <div class="categoria__container nova">
+                    <div class="titulo">
+                        <h1>Compre por categoria</h1>
+                    </div>
+                        <ul class="slide_ul ul">
                         {% for categoria in categorias %}
-                        <li class="mySlides fade">
-                            <a href="{{categoria.get_absolute_url}}">
-                                {% if categoria.imagem_principal %}
-                                <img  src="{{categoria.imagem_principal.url}}" alt="">
-                                {% endif %}
-                                <span>{{categoria.nome}}</span>
-                            </a>
-                        </li>
+                            <li class="mySlides fade">
+                                <a href="{{categoria.get_absolute_url}}">
+                                    {% if not categoria.imagem %}
+                                    <img class="item corent-item" src="{{categoria.imagem_principal.url}}" alt="">
+                                    {% endif %}
+                                    <span>{{categoria.nome}}</span>
+                                </a>
+                            </li>
                         {% endfor %}
-                    </ul>
+                        </ul>
+
+                        <div class="slide_button">
+                            <i class="bi bi-chevron-left constrol"></i>
+                            <i class="bi bi-chevron-right constrol"></i>
+                        </div>
                  </div><!--Fim da div categoria__container-->
              </div><!--Fim da div container-->
         </section>

@@ -159,57 +159,55 @@ header > .container{
 
 .titulo{
     color: #000;
-    margin: 8rem 0 2rem 0;
+    margin: 80px 0 20px 0;
 }
 
 .titulo h1{
     font-size: 1.5rem;
 }
 
-.categoria__container ul{
-    background-color: transparent;
+.categoria__container .slide_ul{
+    background-color: red;
     width: 100%;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    padding: 0 2%;
+    padding: 20px 2%;
+    position: relative;
+    overflow: hidden;
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap;
     align-items: center;
     align-content: center;
     justify-items: center;
     gap: 18px;
 }
 
-/*.dot{
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
+.categoria__container .ul{
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    /*-ms-overflow-style: none;
+    scrollbar-width: none;*/
 
-.astive, .dot:hover{
-    background-color: #717171;
-}
+} 
 
-.mySlides{
+/*.ul::-webkit-scrollbar{
     display: none;
-}
-
-.fade{
-   animation-name: fade;
-   animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: .1}
 }*/
 
+.categoria__container .slide_button {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 
+.categoria__container .slide_button i{
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #bdbcbc;
+}
+
+.categoria__container .slide_button i:hover{
+    color: #000;
+}
 
 .categoria__container li{
     background-color: #fff;
@@ -355,7 +353,6 @@ header > .container{
     width: 150px;
     height: 150px;
     object-fit: cover;
-    
 }
 
 .alimentos_integrais ul li a{

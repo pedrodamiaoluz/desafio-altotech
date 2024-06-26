@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Veganos Naturais {% endblock title %}
+
+{% block content %}
+
+{% for produto in produtos %}
+       {% include 'partials/adicionar_produto_ao_carrinho.html' %}
+{% endfor %}
+
+{% endblock content %}
