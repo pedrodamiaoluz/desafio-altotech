@@ -362,6 +362,24 @@ input.quantidade {
 
 /*------------------------------------------------------------------*/
 
+
+#produto-links-Tit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+}
+
+#produto-links-Tit a{
+    color: #000;
+    text-decoration: none;
+    transition: .2s;
+}
+
+#produto-links-Tit a:hover{
+    color: #569641;
+}
+
 .categoria__lista-link, .marca__lista-link{
     display: none;
 }

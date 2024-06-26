@@ -17,7 +17,7 @@
                         {% for categoria in categorias %}
                             <li class="mySlides fade">
                                 <a href="{{categoria.get_absolute_url}}">
-                                    {% if not categoria.imagem %}
+                                    {% if categoria.imagem_principal %}
                                     <img class="item corent-item" src="{{categoria.imagem_principal.url}}" alt="">
                                     {% endif %}
                                     <span>{{categoria.nome}}</span>
