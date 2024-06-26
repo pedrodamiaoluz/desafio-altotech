@@ -136,8 +136,7 @@ header > .container{
 }
 
 .categoria__container .ul{
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
+    overflow-x: auto;
     /*-ms-overflow-style: none;
     scrollbar-width: none;*/
 
