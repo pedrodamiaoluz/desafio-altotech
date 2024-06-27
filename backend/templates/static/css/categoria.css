@@ -198,7 +198,7 @@
 
 .compre__container{
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: flex-start;
     gap: 90px;
 }
@@ -206,6 +206,7 @@
 
 .produtos_titulo{
     margin: 40px 0 30px 5px;
+    width: 800px;
     display: flex;
     justify-content: space-between;
     align-items: center;
