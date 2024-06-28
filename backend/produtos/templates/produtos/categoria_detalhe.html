@@ -5,8 +5,6 @@
 
 {% block content %}
 
- <button type= "submit" form='filtrar_produtos'>Testeando Filtro</button>
-
     <section class="compre_por_categoria">
        <div class="compre__conteudo-container">
           <div class="compre_produto">
@@ -34,7 +32,7 @@
                         {% for ingrediente in ingredientes %}
                         <li>
                             <a href="" class="lista__link">
-                                <input type="checkbox" name="ingredientes" value="{{ingrediente.id}}" {% if filtro_ingredientes and  ingrediente.id in filtro_ingredientes %} checked {% endif %}>
+                                <input type="checkbox" name="ingredientes" value="{{ingrediente.id}}" {% if filtro_ingredientes and  ingrediente.id in filtro_ingredientes %} checked {% endif %} onclick="enviar_formulario()">
                                 <span class="lista-titulos">{{ingrediente.nome}}</span>
                             </a>
                         </li>
@@ -52,7 +50,7 @@
                         {% for categoria in categorias %}
                         <li>
                             <a href="" class="lista__link">
-                                <input type="checkbox" name="categorias" value="{{categoria.id}}" {% if filtro_categorias and categoria.id in filtro_categorias %} checked {% endif %}>
+                                <input type="checkbox" name="categorias" value="{{categoria.id}}" {% if filtro_categorias and categoria.id in filtro_categorias %} checked {% endif %} onclick="enviar_formulario()">
                                 <span>{{categoria.nome}}</span>
                             </a>
                         </li>
@@ -70,7 +68,7 @@
                         {% for marca in marcas %}
                         <li>
                             <a href="" class="lista__link">
-                                <input type="checkbox" name="marcas" value="{{marca.id}}" {% if filtro_marcas and  marca.id in filtro_marcas %} checked {% endif %}>
+                                <input type="checkbox" name="marcas" value="{{marca.id}}" {% if filtro_marcas and  marca.id in filtro_marcas %} checked {% endif %} onclick="enviar_formulario()">
                                 <span>{{marca.nome}}</span>
                             </a>
                         </li>
@@ -83,7 +81,7 @@
 
           <div class="leaude__categoria-contaeiner">
             <div class="leaude__categoria-conteudo">
-                <span><a href="{% url 'produtos:home' %}">Inicio</a> / <a href="{{categoria.get_absolute_url}}">{{categoria.nome}}</a> / {{sub_categoria_selecionada.nome}}</span>
+                <span><a href="{% url 'produtos:home' %}">Inicio</a>/<a href="{{categoria.get_absolute_url}}">{{categoria.nome}}</a>/{{sub_categoria_selecionada.nome}}</span>
             {{sub_categoria_selecionada.descricao|safe}}
             </div>
 
