@@ -40,6 +40,11 @@
 
 /*Contate Nos*/
 
+.contatenos_form h1{
+ margin-bottom: 20px;
+ color: #354132;
+}
+
 .contate__nos{
     display: flex;
     justify-content: space-between;
@@ -48,7 +53,6 @@
 }
 
 .catato__conteudo{
-    background-color: #56C033;
     width: 800px;
 }
 
@@ -83,13 +87,54 @@
     padding: 0 5px;
 }
 
-.formulario{
+
+.formulario .form{
     display: flex;
     flex-direction: row;
-    
+    gap: 20px;
 }
 
-.formulario .nova{
+.formulario button{
+    margin: 20px auto;
+    padding: 15px 30px;
+    background-color: #56C033;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
+.form .form-conteudo{
     display: flex;
     flex-direction: column;
+    margin: 20px 0;
+}
+
+.form .form-conteudo input{
+    width: 150px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid #56C033;
+    outline: none;
+}
+
+.form .form-conteudo label{
+    padding: 5px 10px;
+}
+
+.formulario .mensagem{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formulario .mensagem textarea{
+    width: 300px;
+    height: 100px;
+    padding: 5px;
+    border: 1px solid #56C033;
+    outline: none;
 }
