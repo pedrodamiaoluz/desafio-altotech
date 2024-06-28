@@ -200,7 +200,7 @@
     display: flex;
     justify-content: start;
     align-items: flex-start;
-    gap: 90px;
+    gap: 20px;
 }
 
 
@@ -229,14 +229,16 @@
     color: #569641;
 }
 
-.compre__produto-liste ul{
+.compre__produto-liste ul {
     list-style-type: none;
+    /*display: grid;
+    grid-template-columns: 1fr 1fr 1fr;*/
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
 }
 
-.compre__produto-liste ul li{
+.compre__produto-liste ul li form{
     background-color: #fff;
     width: 220px;
     box-shadow: 0 0 7px #bdbcbc;
@@ -311,7 +313,7 @@ input.quantidade {
 
 .compre__conteudo-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: flex-start;
     gap: 20px;
 }
@@ -324,6 +326,7 @@ input.quantidade {
 
 .leaude__categoria-conteudo{
     background-color: #4b6b40a8;
+    width: 100%;
     padding: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -483,14 +486,14 @@ input.quantidade {
 
 .leuade__produto-categoria ul{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     list-style-type: none;
     gap: 15px;
 }
 
 .leuade__produto-categoria ul li form{
     background-color: #fff;
-    width: 263px;
+    width: 200px;
     box-shadow: 0 0 7px #bdbcbc;
     display: flex;
     flex-direction: column;
