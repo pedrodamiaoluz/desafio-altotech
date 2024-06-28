@@ -54,7 +54,7 @@ class SubCategoriaListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
 
-        sub_categorias = SubCategoria.objects.exclude(
+        sub_categorias = self.categoria.sub_categorias.exclude(
             slug=self.sub_categoria.slug)
 
         ingredientes = Ingrediente.objects.all()
