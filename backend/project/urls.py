@@ -5,9 +5,10 @@ from django.urls import include, path
 
 
 urlpatterns = [
-    path("usuarios/", include("usuarios.urls")),
+    path("", include("usuarios.urls")),
     path("", include("produtos.urls")),
     path("carrinho/", include("carrinho.urls")),
+    path('', include("landing_pages.urls")),
 
     path("admin/", admin.site.urls),
 

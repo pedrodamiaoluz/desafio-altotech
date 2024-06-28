@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'produtos',
     'pedidos',
     'carrinho',
+    'landing_pages',
 
     'django_summernote',
 ]
