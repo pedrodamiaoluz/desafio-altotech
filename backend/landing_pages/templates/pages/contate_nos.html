@@ -45,31 +45,59 @@
                       <h1>Envie-nos uma mensagem</h1>
                       <p>Quer compartilhar suas ideias, fale conosco. Utilize o formulário abaixo</p>
                      <div class="formulario">
-                        <form>
+                        <form action="{% url 'landing_pages:contate_nos' %}" method="POST" id="formulario_contate_nos">{%  csrf_token %}
                             <div class="form">
                                 <div class="form-conteudo">
-                                    <label for="">Nome *</label>
-                                     <input type="text" name="" id="" placeholder="Nome">
+                                    <label for="nome">Nome *</label>
+                                     <input type="text" name="nome" id="nome" placeholder="Nome" {% if form.nome.value %} value="{{form.nome.value}}"{% endif %} >
+                                    {% if form.nome.errors %}
+                                        {% for error in form.nome.errors %}
+                                            <div class="from__erro">
+                                                {{error}}
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
                                 </div>
                                 <div class="form-conteudo">
-                                    <label for="">Email *</label>
-                                    <input type="email" name="" id="" placeholder="Email">
+                                    <label for="email">Email *</label>
+                                    <input type="email" name="email" id="email" placeholder="Email" {% if form.email.value %} value="{{form.email.value}}"{% endif %}>
+                                    {% if form.email.errors %}
+                                        {% for error in form.email.errors %}
+                                            <div class="from__erro">
+                                                {{error}}
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
                                 </div>
                                 <div class="form-conteudo">
-                                    <label for="">Telefone *</label>
-                                    <input type="text" name="" id="" placeholder="Telefone">
+                                    <label for="telefone">Telefone *</label>
+                                    <input type="text" name="telefone" id="telefone" placeholder="Telefone" {% if form.telefone.value %} value="{{form.telefone.value}}"{% endif %}>
+                                    {% if form.telefone.errors %}
+                                        {% for error in form.telefone.errors %}
+                                            <div class="from__erro">
+                                                {{error}}
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="mensagem">
-                                <label for="">Mensagens *</label>
-                                <textarea name="" id=""></textarea>
+                                <label for="mensagem">Mensagens *</label>
+                                <textarea name="mensagem" id="mensagem"></textarea>
+                                {% if form.mensagem.errors %}
+                                    {% for error in form.mensagem.errors %}
+                                        <div class="from__erro">
+                                            {{error}}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                         </form>
-                        <button>Enviar</button>
+                        <button form="formulario_contate_nos">Enviar</button>
                      </div>
                 </div>
             </div>
         </div>
      </section>
-      
+
 {% endblock content %}
