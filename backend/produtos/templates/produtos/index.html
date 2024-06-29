@@ -7,29 +7,37 @@
 
     <main>
         <section class="section__minhas-categorias"><!--minhas Categorias-->
-             <div class="container">
-                 <div class="categoria__container nova">
-                    <div class="titulo">
-                        <h1>Compre por categoria</h1>
-                    </div>
-                        <ul class="slide_ul ul">
+            <div class="container">
+               <div class="titulo">
+                   <h1>Compre por categoria</h1>
+               </div>
+                <div class="swiper"> 
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
                         {% for categoria in categorias %}
+                        {% if categoria.imagem_principal %}
+                        <div class="swiper-slide">
                             <li class="mySlides fade">
                                 <a href="{{categoria.get_absolute_url}}">
-                                    {% if categoria.imagem_principal %}
                                     <img class="item corent-item" src="{{categoria.imagem_principal.url}}" alt="">
-                                    {% endif %}
                                     <span>{{categoria.nome}}</span>
                                 </a>
                             </li>
-                        {% endfor %}
-                        </ul>
-
-                        <div class="slide_button">
-                            <i class="bi bi-chevron-left constrol"></i>
-                            <i class="bi bi-chevron-right constrol"></i>
                         </div>
-                 </div><!--Fim da div categoria__container-->
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                  
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>     
              </div><!--Fim da div container-->
         </section>
 
@@ -77,5 +85,7 @@
             </div>
         </section>
     </main>
+
+    {% include 'static/js/slide.html' %}
 
 {% endblock content %}
