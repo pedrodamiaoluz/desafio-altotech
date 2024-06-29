@@ -168,7 +168,6 @@ class HomeView(View):
 
 class ProdutoListView(ListView):
     template_name = "produtos/produtos.html"
-    model = Produto
     context_object_name = 'produtos'
     paginate_by = PRODUTO_QUANTIDADE_POR_PAGINA
 
@@ -177,8 +176,4 @@ class ProdutoListView(ListView):
         return super().setup(request, *args, **kwargs)
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        search = self.search
-        if search:
-            queryset = queryset.filter(nome__istartswith=search)
-        return queryset
+        return Produto.objects.search(self.search)

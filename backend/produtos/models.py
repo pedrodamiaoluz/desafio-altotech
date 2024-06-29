@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from .managers import ProdutoManager
 from .utils import redimencionar_imagem
 
 # Create your models here.
@@ -86,6 +86,8 @@ class Produto(models.Model):
     imagem = models.ImageField(upload_to='produto_imagem/%Y/%m',
                                null=True,
                                blank=True)
+    
+    objects = ProdutoManager()
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
