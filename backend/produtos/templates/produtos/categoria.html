@@ -56,14 +56,17 @@
                        <h1>{{sub_categoria.nome}}</h1>
                        <span><a href="{{sub_categoria.get_absolute_url}}">Ver tudo</a><i class="bi bi-chevron-double-right"></i></span>
                    </div>
-
+                   {% if sub_categoria.produtos.exists %}
                    <ul>
-                       {% for produto in sub_categoria.produtos.all|fatiar_lista:5 %}
+                       {% for produto in sub_categoria.produtos.all|fatiar_lista:6 %}
                       <li>
                           {% include 'partials/adicionar_produto_ao_carrinho.html' %}
                       </li>
                        {% endfor %}
                    </ul><!--Fim da ul produto_liste-->
+                   {% else %}
+                    <h5> Categoria sem produtos </h5>
+                   {% endif %}
                </div>
               {% endfor %}
               </div>
