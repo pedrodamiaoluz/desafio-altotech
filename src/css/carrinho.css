@@ -76,6 +76,17 @@ header > .carrinho__container{
     gap: 5px;
 }
 
+.main__carrinho-container button{
+    margin-top: 20px;
+    border: none;
+    padding: 10px 15px;
+    background-color: #4EEA18;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #354132;
+}
+
 /*------------------------------------*/
 .produto-adicionado{
     display: flex;
