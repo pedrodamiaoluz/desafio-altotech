@@ -54,14 +54,17 @@ class SubCategoriaListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
 
-        sub_categorias = self.categoria.sub_categorias.exclude(
+        categoria_sub_categorias = self.categoria.sub_categorias.exclude(
             slug=self.sub_categoria.slug)
 
         ingredientes = Ingrediente.objects.all()
         marcas = Marca.objects.all()
+        sub_categorias = SubCategoria.objects.exclude(
+            slug=self.sub_categoria.slug)
 
         context.update({
-            'sub_categorias': sub_categorias,
+            'categorias': sub_categorias,
+            'sub_categorias': categoria_sub_categorias,
             'ingredientes': ingredientes,
             'marcas': marcas,
             'sub_categoria_selecionada': self.sub_categoria,

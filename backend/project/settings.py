@@ -187,7 +187,7 @@ SUMMERNOTE_CONFIG = {
             ['font', ['bold', 'italic', 'clear']],
             ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph', 'hr', ]],
-            ['view', ['fullscreen', 'codeview', 'undo', 'redo']],
+            ['view', ['fullscreen', 'undo', 'redo']],
         ],
         'codemirror': {
             'mode': 'htmlmixed',
