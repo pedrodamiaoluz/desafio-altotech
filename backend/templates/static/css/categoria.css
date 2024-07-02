@@ -374,6 +374,7 @@ input.quantidade {
     justify-content: space-between;
     align-items: center;
     width: 250px;
+    margin-bottom: 10px;
 }
 
 #produto-links-Tit a{
@@ -402,6 +403,7 @@ input.quantidade {
     justify-items: center;
     align-items: center;
     color: #000;
+    margin-bottom: 10px;
 }
 
 .produto-links-Tit .bi{
@@ -473,6 +475,7 @@ input.quantidade {
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 2px 0 0 20px;
 
     input{
         cursor: pointer;
