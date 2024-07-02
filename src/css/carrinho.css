@@ -76,6 +76,17 @@ header > .carrinho__container{
     gap: 5px;
 }
 
+.main__carrinho-container button{
+    margin-top: 20px;
+    border: none;
+    padding: 10px 15px;
+    background-color: #4EEA18;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #354132;
+}
+
 /*------------------------------------*/
 .produto-adicionado{
     display: flex;
@@ -166,5 +177,162 @@ header > .carrinho__container{
     font-weight: 700;
     padding: 10px 15px;
     border-radius: 5px;
+}
+
+/*Configurações sobre a identificação*/
+
+.form__indentificacao-container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.form__indentificacao-container .identivicacao__input input{
+    width: 620px;
+    height: 50px;
+    padding: 20px 8px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #bdbcbc;
+}
+
+.identivicacao__input .endereco_numero{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.identivicacao__input .endereco_numero .endereco{
+    width: 500px;
+}
+
+.identivicacao__input .endereco_numero .numero{
+    width: 100px;
+}
+
+.identivicacao__input .bairo_complemento{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.identivicacao__input .cidade_estado_cep{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.identivicacao__input .cidade_estado_cep input{
+    width: 197px;
+}
+
+.identivicacao__input .cidade_estado_cep select{
+    background-color: transparent;
+    padding: 0 5px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #bdbcbc;
+    text-overflow: ellipsis;
+    color: #6d6969;
+    cursor: pointer;
+}
+
+.identivicacao__input .cidade_estado_cep select option{
+    color: #000;
+    
+}
+
+.form__buutton{
+    display: flex;
+    justify-content: end;
+}
+
+.form__buutton a{
+    background-color: #4EEA18;
+    text-decoration: none;
+    border: none;
+    padding: 10px 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    color: #2E332C;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/*Configurações sobre o pagamento*/
+
+.pagamento__container .menu_form{
+    display: none;
+}
+
+.pagamento__container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+
+}
+
+.pagamento__container input{
+    width: 500px;
+    height: 50px;
+    padding: 20px 8px;
+    outline-color: #4EEA18;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.validade__codigo{
+    display: flex;
+    gap: 20px;
+}
+
+.validade__codigo .Valide_Thru{
+    width: 370px;
+}
+
+.validade__codigo .Securite_Code{
+    width: 110px;
+}
+
+.menu_cartao-credito{
+    background-color: transparent;
+    border: 1px solid #4EEA18;
+    width: 500px;
+    height: 70px;
+    padding: 20px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu_conteudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu_conteudo i{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu_cartao-credito .cartao__img{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cartao__img img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
 }
 

@@ -22,34 +22,50 @@ function ready(){
    }
 }
 
-function buttonAdicionar(event){
+/*function buttonAdicionar(event){
     const button = event.target
-    const produtoInform = button.parentElement
-    const produtoImage = produtoInform.getElementsByClassName("alimentos-img")[0].src
-    const produtoTitle = produtoInform.getElementsByClassName("produto-title")[0].innerText
-    const prodPreco = produtoInform.getElementsByClassName("preco")[0].innerText
+    const produtoInform = button.parentElement.parentElement
+    const produtoImageElement = produtoInform.getElementsByClassName("alimentos-img")[0]
+    const produtoTitleElement = produtoInform.getElementsByClassName("produto-title")[0]
+    const prodPrecoElement = produtoInform.getElementsByClassName("preco")[0]
+
+    if (!produtoImageElement || !produtoTitleElement || !prodPrecoElement) {
+        console.error("Erro: Elementos do produto não encontrados");
+        return;
+    }
+
+    const produtoImage = produtoImageElement.src;
+    const produtoTitle = produtoTitleElement.innerText;
+    const prodPreco = prodPrecoElement.innerText;
     
     let creatProduto =  document.createElement("tr")
     creatProduto.classList.add("produto-adicionado")
-
+   
+    
     creatProduto.innerHTML = 
     `
-    <td class="carrinho__conteudo-img">
-    <img src="${produtoImage}" alt="">
-    <span class="produto-title">${produtoTitle}</span>
-</td>
-<td>
+   <td class="carrinho__conteudo-img">
+     <img src="${produtoImage}" alt="">
+     <span class="produto-title">${produtoTitle}</span>
+   </td>
+   <td>
     <span class="produto-preco">${prodPreco}</span>
-</td>
-<td class="remover__quantidade">
+    </td>
+    <td class="remover__quantidade">
     <input class="input__quantidade" type="number" value="1" min="0">
     <button type="button" class="button-remov">Remover</button>
-</td>
+  </td>
     `
-    console.log(creatProduto)
-    const tableBody =  document.getElementsByClassName(".tbody")
-    tableBody.append(creatProduto)
-}
+
+
+
+    const tableBody = document.querySelector(".carrinho__adicionado tbody")
+    console.log(tableBody)
+    tableBody.append(creatProduto);
+    
+    
+}*/
+
 
 function removeProdut(event){
     event.target.parentElement.parentElement.remove()
@@ -72,4 +88,16 @@ totalGeral = totalGeral.replace(".", ",")
 document.querySelector(".total__geral span").innerText = "R$" + totalGeral
 }
 
+
+/*Configuracão da pagina pagamento*/
+
+$(document).ready(function() {
+    var botao = $('.menu_cartao-credito');
+    var dropDown = $('.menu_form');    
+   
+        botao.on('click', function(event){
+            dropDown.stop(true,true).slideToggle();
+            event.stopPropagation();
+        });
+   });
 
