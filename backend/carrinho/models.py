@@ -35,3 +35,6 @@ class ItemProduto(models.Model):
 
     def __str__(self):
         return f"Item: {self.produto}, está no {self.carrinho}"
+    
+    def total(self):
+        return self.produto.preco * self.quantidade

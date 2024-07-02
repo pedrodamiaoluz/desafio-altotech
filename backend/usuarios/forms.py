@@ -54,7 +54,7 @@ class UserEnderecoForm(forms.ModelForm):
 
     class Meta:
         model = user_model
-        fields = ('cep', 'estado', 'cidade', 'bairro', 'complemento', 'rua',
+        fields = ( 'nome_completo', 'telefone', 'cep', 'estado', 'cidade', 'bairro', 'complemento', 'rua',
                   'numero')
 
 

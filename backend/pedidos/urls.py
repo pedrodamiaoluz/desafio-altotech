@@ -1,9 +1,11 @@
-from rest_framework.routers import SimpleRouter
+from django.urls import path
 
-from pedidos.api.views import PedidoViewSet
+from .views import IdentificacaoView, PagamentoView, PedidoDetailView
 
-router = SimpleRouter()
+app_name = 'pedidos'
 
-router.register('', PedidoViewSet)
-
-urlpatterns = router.urls
+urlpatterns = [
+    path("pedido/<int:pk>/", PedidoDetailView.as_view(), name='pedido_detalhe'),
+    path("identificacao/", IdentificacaoView.as_view(), name='identificacao'),
+    path("pagamento/", PagamentoView.as_view(), name='pagamento'),
+]

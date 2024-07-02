@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-
+from django.urls import reverse
 from carrinho.models import Carrinho
 from produtos.models import Produto
 
@@ -32,3 +32,14 @@ class Pedido(models.Model):
 
     def __str__(self):
         return f'Pedido N°{self.id}'
+
+    def get_absolute_url(self):
+        return reverse("pedidos:pedido_detalhe", kwargs={"pk": self.pk})
+
+    @property
+    def total(self):
+        return sum([item.produto.preco * item.quantidade for item in self.carrinho.itens.all()])
+
+    @property
+    def quantidade(self):
+        return sum([item.quantidade for item in self.carrinho.itens.all()])
