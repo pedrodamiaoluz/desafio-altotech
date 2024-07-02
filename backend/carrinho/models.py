@@ -26,6 +26,9 @@ class Carrinho(models.Model):
 
     def __str__(self):
         return f"Carrinho do usuario: {self.user.nome_completo}"
+    @property
+    def total(self):
+        return sum([item.total for item in self.itens.all()])
 
 
 class ItemProduto(models.Model):
@@ -35,6 +38,7 @@ class ItemProduto(models.Model):
 
     def __str__(self):
         return f"Item: {self.produto}, está no {self.carrinho}"
-    
+
+    @property
     def total(self):
         return self.produto.preco * self.quantidade

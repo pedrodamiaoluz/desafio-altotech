@@ -3,25 +3,34 @@
 
 {% block title %} Pagamento {% endblock title %}
 
+{% block header %}
+    <div class="carrinho__container">
+        <div class="header__carrinho-container-logo">
+            <img src="{% static 'img/logo_header_carrinho.png' %}" alt="">
+        </div>
+        <div class="borda"></div>
+    </div>
+{% endblock header %}
+
 {% block content %}
 <main>
     <section>
         <div class="main__carrinho-container">
         <div class="carrinho-container-icons">
             <div class="icons">
-                <a href="">
+                <a href="{% url 'carrinho:carrinho' %}">
                     <i class="bi bi-cart-fill"></i>
                     <span>Carrinho</span>
                 </a>
             </div>
             <div class="icons">
-                <a href="">
+                <a href="{% url 'pedidos:identificacao' %}">
                     <i class="bi bi-person-fill"></i>
                     <span>Identificação</span>
                 </a>
             </div>
             <div class="icons">
-                <a href="" style="color: #569641;">
+                <a href="{% url 'pedidos:pagamento' %}" style="color: #569641;">
                     <i class="bi bi-credit-card-2-back-fill"></i>
                     <span>Pagamento</span>
                 </a>

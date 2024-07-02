@@ -2,13 +2,13 @@
 <html lang="pt">
 <head>
     {% include "partials/_head.html" %}
-
+    {% comment %} {% block bootstrap %}{% endblock bootstrap %} {% endcomment %}
     <title>{% block title %} Ecommerce Capacitação {% endblock title %}</title>
 </head>
 <body>
 
     <header>
-        {% include "partials/_header.html" %}
+       {% block header %}{% include "partials/_header.html" %}{% endblock header %}
     </header>
     {% block messages %}{% include 'partials/messages.html' %}{% endblock messages %}
     {% block content %}{% endblock content %}
