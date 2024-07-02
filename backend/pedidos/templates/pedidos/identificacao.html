@@ -3,25 +3,34 @@
 
 {% block title %} Identificação {% endblock title %}
 
+{% block header %}
+    <div class="carrinho__container">
+        <div class="header__carrinho-container-logo">
+            <img src="{% static 'img/logo_header_carrinho.png' %}" alt="">
+        </div>
+        <div class="borda"></div>
+    </div>
+{% endblock header %}
+
 {% block content %}
     <main>
         <section>
             <div class="main__carrinho-container">
             <div class="carrinho-container-icons">
                 <div class="icons">
-                    <a href="">
+                    <a href="{% url 'carrinho:carrinho' %}">
                         <i class="bi bi-cart-fill"></i>
                         <span>Carrinho</span>
                     </a>
                 </div>
                 <div class="icons">
-                    <a href="" style="color: #569641;">
+                    <a href="{% url 'pedidos:identificacao' %}" style="color: #569641;">
                         <i class="bi bi-person-fill"></i>
                         <span>Identificação</span>
                     </a>
                 </div>
                 <div class="icons">
-                    <a href="">
+                    <a href="{% url 'pedidos:pagamento' %}">
                         <i class="bi bi-credit-card-2-back-fill"></i>
                         <span>Pagamento</span>
                     </a>
@@ -32,87 +41,99 @@
             </div>
             <div class="form__indentificacao-container">
                 <form action="{% url 'pedidos:identificacao' %}" method="POST" id="identificacao_form"> {% csrf_token %}
-                    <input type="text" name="nome_completo" id="" placeholder="Nome Completo" {% if form.nome_completo.value %} value="{{form.nome_completo.value}}" {% endif %}>
-                    {% if form.nome_completo.errors %}
-                    {% for error in form.nome_completo.errors %}
-                        <div class="from__erro">
-                            {{error}}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                    <div class="endereco_numero">
-                        <input class="endereco" type="text" name="rua" id="" placeholder="Endereço" {% if form.rua.value %} value="{{form.rua.value}}" {% endif %} >
-                        {% if form.rua.errors %}
-                        {% for error in form.rua.errors %}
-                            <div class="from__erro">
-                                {{error}}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                        <input class="numero" type="text" name="numero" id="" placeholder="N" {% if form.numero.value %} value="{{form.numero.value}}" {% endif %}>
-                        {% if form.numero.errors %}
-                        {% for error in form.numero.errors %}
-                            <div class="from__erro">
-                                {{error}}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                    </div>
-                    <input type="text" name="bairro" id="" placeholder="Bairro" {% if form.bairro.value %} value="{{form.bairro.value}}" {% endif %}>
-                    {% if form.bairro.errors %}
-                    {% for error in form.bairro.errors %}
-                        <div class="from__erro">
-                            {{error}}
-                        </div>
-                    {% endfor %}
-                    {% endif %}
-                    <input type="text" name="complemento" id="" placeholder="Compĺemento" {% if form.complemento.value %} value="{{form.complemento.value}}" {% endif %}>
-                    {% if form.complemento.errors %}
-                    {% for error in form.complemento.errors %}
-                        <div class="from__erro">
-                            {{error}}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                    <div class="cidade_estado_cep">
-                        <input type="text" name="cidade" id="" placeholder="Cidade" {% if form.cidade.value %} value="{{form.cidade.value}}" {% endif %}>
-                        {% if form.cidade.errors %}
-                        {% for error in form.cidade.errors %}
-                            <div class="from__erro">
-                                {{error}}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                        <select id="estado" name="estado" >
-                            <option value="Selecione seu estado" selected disabled >Selecione seu estado</option>
-                            {% for option in form.estado %}
-                                {{option}}
+                    <div class="identivicacao__input">
+                        <input type="text" name="nome_completo" id="" placeholder="Nome Completo" {% if form.nome_completo.value %} value="{{form.nome_completo.value}}" {% endif %}>
+                        {% if form.nome_completo.errors %}
+                            {% for error in form.nome_completo.errors %}
+                                <div class="from__erro">
+                                    {{error}}
+                                </div>
                             {% endfor %}
-                        </select>
-                        {% if form.estado.errors %}
-                        {% for error in form.estado.errors %}
-                            <div class="from__erro">
-                                {{error}}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                        <input type="text" name="cep" id="" placeholder="CEP" {% if form.cep.value %} value="{{form.cep.value}}" {% endif %} >
-                        {% if form.cep.errors %}
-                        {% for error in form.cep.errors %}
-                            <div class="from__erro">
-                                {{error}}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
+                        {% endif %}
                     </div>
-                    <input type="tel" name="telefone" id="" placeholder="Telefone" {% if form.telefone.value %} value="{{form.telefone.value}}" {% endif %}>
-                    {% if form.telefone.errors %}
-                    {% for error in form.telefone.errors %}
-                        <div class="from__erro">
-                            {{error}}
+                    <div class="identivicacao__input">
+                        <div class="endereco_numero">
+                            <input class="endereco" type="text" name="rua" id="" placeholder="Endereço" {% if form.rua.value %} value="{{form.rua.value}}" {% endif %} >
+                            {% if form.rua.errors %}
+                                {% for error in form.rua.errors %}
+                                    <div class="from__erro">
+                                        {{error}}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <input class="numero" type="text" name="numero" id="" placeholder="N" {% if form.numero.value %} value="{{form.numero.value}}" {% endif %}>
+                            {% if form.numero.errors %}
+                            {% for error in form.numero.errors %}
+                                <div class="from__erro">
+                                    {{error}}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                         </div>
-                    {% endfor %}
-                {% endif %}
+                    </div>
+                    <div class="identivicacao__input">
+                        <div class="bairo_complemento">
+                            <input type="text" name="bairro" id="" placeholder="Bairro" {% if form.bairro.value %} value="{{form.bairro.value}}" {% endif %}>
+                            {% if form.bairro.errors %}
+                                {% for error in form.bairro.errors %}
+                                    <div class="from__erro">
+                                        {{error}}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <input type="text" name="complemento" id="" placeholder="Compĺemento" {% if form.complemento.value %} value="{{form.complemento.value}}" {% endif %}>
+                            {% if form.complemento.errors %}
+                                {% for error in form.complemento.errors %}
+                                    <div class="from__erro">
+                                        {{error}}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>     
+                    </div>
+                    <div class="identivicacao__input">
+                        <div class="cidade_estado_cep">
+                                <input type="text" name="cidade" id="" placeholder="Cidade" {% if form.cidade.value %} value="{{form.cidade.value}}" {% endif %}>
+                                {% if form.cidade.errors %}
+                                    {% for error in form.cidade.errors %}
+                                        <div class="from__erro">
+                                            {{error}}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <select id="estado" name="estado" >
+                                    <option value="Selecione seu estado" selected disabled >Selecione seu estado</option>
+                                    {% for option in form.estado %}
+                                        {{option}}
+                                    {% endfor %}
+                                </select>
+                                {% if form.estado.errors %}
+                                    {% for error in form.estado.errors %}
+                                        <div class="from__erro">
+                                            {{error}}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <input type="text" name="cep" id="" placeholder="CEP" {% if form.cep.value %} value="{{form.cep.value}}" {% endif %} >
+                                {% if form.cep.errors %}
+                                    {% for error in form.cep.errors %}
+                                        <div class="from__erro">
+                                            {{error}}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                        </div>
+                    </div>
+                     <div class="identivicacao__input">
+                        <input type="tel" name="telefone" id="" placeholder="Telefone" {% if form.telefone.value %} value="{{form.telefone.value}}" {% endif %}>
+                        {% if form.telefone.errors %}
+                        {% for error in form.telefone.errors %}
+                            <div class="from__erro">
+                                {{error}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                     </div>
                 </form>
                 <div class="form__buutton">
                     <button type="submit" form="identificacao_form">Continuar</button>
