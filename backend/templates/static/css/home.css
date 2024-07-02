@@ -453,9 +453,10 @@ section.resultado {
 
 
 .tornar__veg-conteudo p{
-    padding: 5px 0;
+    padding: 20px 0;
     text-align: justify;
     font-size: 1rem;
+    text-indent: 20px;
 }
 
 /*Configurações sobre as marcas favoritas*/
