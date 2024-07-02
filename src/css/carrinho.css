@@ -189,7 +189,7 @@ header > .carrinho__container{
     gap: 20px;
 }
 
-.form__indentificacao-container input{
+.form__indentificacao-container .identivicacao__input input{
     width: 620px;
     height: 50px;
     padding: 20px 8px;
@@ -198,31 +198,37 @@ header > .carrinho__container{
     border: 1px solid #bdbcbc;
 }
 
-.endereco_numero{
+.identivicacao__input .endereco_numero{
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.endereco_numero .endereco{
+.identivicacao__input .endereco_numero .endereco{
     width: 500px;
 }
 
-.endereco_numero .numero{
+.identivicacao__input .endereco_numero .numero{
     width: 100px;
 }
 
-.cidade_estado_cep{
+.identivicacao__input .bairo_complemento{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.identivicacao__input .cidade_estado_cep{
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.cidade_estado_cep input{
+.identivicacao__input .cidade_estado_cep input{
     width: 197px;
 }
 
-.cidade_estado_cep select{
+.identivicacao__input .cidade_estado_cep select{
     background-color: transparent;
     padding: 0 5px;
     outline: none;
@@ -233,7 +239,7 @@ header > .carrinho__container{
     cursor: pointer;
 }
 
-.cidade_estado_cep select option{
+.identivicacao__input .cidade_estado_cep select option{
     color: #000;
     
 }
