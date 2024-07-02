@@ -195,7 +195,7 @@ span.produto-title {
     gap: 20px;
 }
 
-.form__indentificacao-container .identivicacao__input input{
+.form__indentificacao-container .identivicacao__input input, .endereco_num input, .endereco_numero input{
     width: 620px;
     height: 50px;
     padding: 20px 8px;
@@ -204,17 +204,17 @@ span.produto-title {
     border: 1px solid #bdbcbc;
 }
 
-.identivicacao__input .endereco_numero{
+.identivicacao .endereco_numero{
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.identivicacao__input .endereco_numero .endereco{
+.identivicacao .endereco_numero .endereco{
     width: 500px;
 }
 
-.identivicacao__input .endereco_numero .numero{
+.identivicacao .endereco_numero .numero{
     width: 100px;
 }
 
@@ -232,7 +232,7 @@ span.produto-title {
 }
 
 .identivicacao__input .cidade_estado_cep input{
-    width: 197px;
+    width: 210px;
 }
 
 .identivicacao__input .cidade_estado_cep select{
@@ -244,6 +244,7 @@ span.produto-title {
     text-overflow: ellipsis;
     color: #6d6969;
     cursor: pointer;
+    height: 50px;
 }
 
 .identivicacao__input .cidade_estado_cep select option{
