@@ -24,10 +24,6 @@ class PagamentoView(View):
     template_name = "pedidos/pagamento.html"
 
     def get(self, request, *args, **kwargs):
-        form = UserEnderecoForm(instance=request.user)
-        if not form.is_valid():
-            messages.warning(request, 'Insira suas informações primeiro')
-            return redirect(reverse("pedidos:identificacao"))
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
