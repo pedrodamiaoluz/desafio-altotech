@@ -78,7 +78,11 @@ class IdentificacaoView(View):
     success_url = 'pedidos:pagamento'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, {'form': self.form_class(request.session.get('endereco', {}))})
+        if endereco := request.session.get('endereco', {}):
+            form = self.form_class(initial=endereco)
+        else:
+            form = self.form_class()
+        return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(data=request.POST)
