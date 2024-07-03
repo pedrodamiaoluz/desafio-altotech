@@ -16,9 +16,6 @@
         <dl class="row">
             <dt class="col-lg-2">Nome:</dt>
             <dd class="col-lg-4">{{pedido.user.nome_completo}}</dd>
-
-            {% comment %} <dt class="col-lg-2">Idade:</dt> {% endcomment %}
-            {% comment %} <dd class="col-lg-4">{{pedido.user.idade}}</dd> {% endcomment %}
             <dt class="col-lg-2">Nascimento:</dt>
             <dd class="col-lg-4">{{pedido.user.data_nascimento}}</dd>
 
@@ -26,27 +23,27 @@
             <dd class="col-lg-4">{{pedido.user.cpf}}</dd>
             <dt class="col-lg-2">E-mail:</dt>
             <dd class="col-lg-4">{{pedido.user.email}}</dd>
+            <dt class="col-lg-2">Tefone:</dt>
+            <dd class="col-lg-4">{{pedido.user.telefone}}</dd>
         </dl>
 
         <p class="lead">Dados de endereço</p>
         <dl class="row">
             <dt class="col-lg-2">Endereço:</dt>
-            <dd class="col-lg-4">{{pedido.user.rua}}</dd>
+            <dd class="col-lg-4">{{pedido.rua}}</dd>
             <dt class="col-lg-2">Número:</dt>
-            <dd class="col-lg-4">{{pedido.user.numero}}</dd>
+            <dd class="col-lg-4">{{pedido.numero}}</dd>
 
             <dt class="col-lg-2">Complemento:</dt>
-            <dd class="col-lg-4">{{pedido.user.complemento}}</dd>
-            <dt class="col-lg-2">Nascimento:</dt>
-            <dd class="col-lg-4">{{pedido.user.data_nascimento}}</dd>
+            <dd class="col-lg-4">{{pedido.complemento}}</dd>
 
             <dt class="col-lg-2">Cidade:</dt>
-            <dd class="col-lg-4">{{pedido.user.cidade}}</dd>
+            <dd class="col-lg-4">{{pedido.cidade}}</dd>
             <dt class="col-lg-2">Estado:</dt>
-            <dd class="col-lg-4">{{pedido.user.get_estado_display}}</dd>
+            <dd class="col-lg-4">{{pedido.get_estado_display}}</dd>
 
             <dt class="col-lg-2">CEP:</dt>
-            <dd class="col-lg-4">{{pedido.user.cep}}</dd>
+            <dd class="col-lg-4">{{pedido.cep}}</dd>
         </dl>
     </div>
 </div>

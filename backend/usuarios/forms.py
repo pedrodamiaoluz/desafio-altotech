@@ -26,44 +26,36 @@ class LoginForm(forms.Form):
 
 
 class UserForm(forms.ModelForm):
-    senha = forms.CharField(max_length=255,min_length=8,
-        widget=forms.TextInput(attrs={
-            'type': "password",
-            'placeholder': "Senha",
-        }))
+    senha = forms.CharField(max_length=255, min_length=8,
+                            widget=forms.TextInput(attrs={
+                                'type': "password",
+                                'placeholder': "Senha",
+                            }))
 
     class Meta:
         model = user_model
         fields = ("nome_completo", 'cpf', 'data_nascimento', 'telefone',
                   'email', 'senha')
         widgets = {
-            'nome_completo': forms.TextInput(attrs={'placeholder':"Informe seu nome completo"}),
-            'cpf': forms.TextInput(attrs={'placeholder':"000.000.000-00"}),
-            'telefone': forms.TextInput(attrs={'placeholder':"(DDD) 00000-0000"}),
-            'data_nascimento': forms.DateInput(attrs={'placeholder':"Informe sua data de nascimento"}),
-            'email': forms.EmailInput(attrs={'placeholder':"Exemplo@exemplo.com"}),
+            'nome_completo': forms.TextInput(attrs={'placeholder': "Informe seu nome completo"}),
+            'cpf': forms.TextInput(attrs={'placeholder': "000.000.000-00"}),
+            'telefone': forms.TextInput(attrs={'placeholder': "(DDD) 00000-0000"}),
+            'data_nascimento': forms.DateInput(attrs={'placeholder': "Informe sua data de nascimento"}),
+            'email': forms.EmailInput(attrs={'placeholder': "Exemplo@exemplo.com"}),
         }
 
     def save(self, **kwargs):
         password = self.cleaned_data.pop('senha')
-        user = user_model.objects.create_user(password=password, **self.cleaned_data)
+        user = user_model.objects.create_user(
+            password=password, **self.cleaned_data)
         return user
 
 
-class UserEnderecoForm(forms.ModelForm):
-
-    class Meta:
-        model = user_model
-        fields = ( 'nome_completo', 'telefone', 'cep', 'estado', 'cidade', 'bairro', 'complemento', 'rua',
-                  'numero')
-
-
 class EnviarEmailResetSenhaForm(forms.Form):
-    email_ou_cpf = forms.CharField(max_length=255,label="E-mail ou cpf",
-                                  widget=forms.TextInput(attrs={
-                                      'placeholder': "E-mail ou cpf",
-                                  }))
-
+    email_ou_cpf = forms.CharField(max_length=255, label="E-mail ou cpf",
+                                   widget=forms.TextInput(attrs={
+                                       'placeholder': "E-mail ou cpf",
+                                   }))
 
     class Meta:
         fields = ('email_ou_cpf', )
@@ -100,7 +92,7 @@ class EnviarEmailResetSenhaForm(forms.Form):
 class ChangePasswordSerializer(forms.Form):
     senha = forms.CharField(
         min_length=8,
-        max_length=255,label="Informe a nova senha",
+        max_length=255, label="Informe a nova senha",
         widget=forms.TextInput(attrs={
             'type': "password",
             'placeholder': "Nova senha",
@@ -109,7 +101,7 @@ class ChangePasswordSerializer(forms.Form):
 
     senha2 = forms.CharField(
         min_length=8,
-        max_length=255,label="Confirme a nova senha",
+        max_length=255, label="Confirme a nova senha",
         widget=forms.TextInput(attrs={
             'type': "password",
             'placeholder': "Confirme a nova senha",

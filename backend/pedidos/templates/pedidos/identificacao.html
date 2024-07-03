@@ -41,16 +41,6 @@
             </div>
             <div class="form__indentificacao-container">
                 <form action="{% url 'pedidos:identificacao' %}" method="POST" id="identificacao_form"> {% csrf_token %}
-                   <!--<div class="identivicacao__input">
-                        <input type="text" name="nome_completo" id="" placeholder="Nome Completo" {% if form.nome_completo.value %} value="{{form.nome_completo.value}}" {% endif %}>
-                        {% if form.nome_completo.errors %}
-                            {% for error in form.nome_completo.errors %}
-                                <div class="from__erro">
-                                    {{error}}
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>-->
                      <div class="identivicacao">
                         <div class="endereco_numero">
                             <div class="endereco_num">
@@ -134,16 +124,6 @@
                             </div>
                         </div>
                     </div>
-                     <!--<div class="identivicacao__input">
-                        <input type="tel" name="telefone" id="" placeholder="Telefone" {% if form.telefone.value %} value="{{form.telefone.value}}" {% endif %}>
-                        {% if form.telefone.errors %}
-                        {% for error in form.telefone.errors %}
-                            <div class="from__erro">
-                                {{error}}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                     </div>-->
                 </form>
                 <div class="form__buutton">
                     <button type="submit" form="identificacao_form">Continuar</button>

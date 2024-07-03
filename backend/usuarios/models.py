@@ -20,42 +20,12 @@ from usuarios.validators import (
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    ESTADO_CHOICES = (
-        ('AC', 'Acre'),
-        ('AL', 'Alagoas'),
-        ('AP', 'Amapá'),
-        ('AM', 'Amazonas'),
-        ('BA', 'Bahia'),
-        ('CE', 'Ceará'),
-        ('DF', 'Distrito Federal'),
-        ('ES', 'Espírito Santo'),
-        ('GO', 'Goiás'),
-        ('MA', 'Maranhão'),
-        ('MT', 'Mato Grosso'),
-        ('MS', 'Mato Grosso do Sul'),
-        ('MG', 'Minas Gerais'),
-        ('PA', 'Pará'),
-        ('PB', 'Paraíba'),
-        ('PR', 'Paraná'),
-        ('PE', 'Pernambuco'),
-        ('PI', 'Piauí'),
-        ('RJ', 'Rio de Janeiro'),
-        ('RN', 'Rio Grande do Norte'),
-        ('RS', 'Rio Grande do Sul'),
-        ('RO', 'Rondônia'),
-        ('RR', 'Roraima'),
-        ('SC', 'Santa Catarina'),
-        ('SP', 'São Paulo'),
-        ('SE', 'Sergipe'),
-        ('TO', 'Tocantins'),
-    )
-
     email = models.EmailField(_('endereço de email'),
                               unique=True,
                               validators=[
                                   RegexValidator(re.compile(PADRA_REGEX_EMAIL),
                                                  'Endereço de email inválido')
-                              ])
+    ])
     nome_completo = models.CharField(
         _("nome"),
         max_length=100,
@@ -72,7 +42,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
                                RegexValidator(
                                    re.compile(PADRA_REGEX_CPF),
                                    'CPF não está no padrão exigido', 'invalid')
-                           ])
+    ])
     data_nascimento = models.DateField(null=True,
                                        blank=False,
                                        validators=[eh_de_maior])
@@ -82,14 +52,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
                                         re.compile(PADRA_REGEX_TELEFONE),
                                         'Número telefone inválido')
                                 ])
-
-    cep = models.CharField(max_length=8, default='')
-    estado = models.CharField(max_length=2, choices=ESTADO_CHOICES, default='')
-    cidade = models.CharField(max_length=50, default='')
-    bairro = models.CharField(max_length=50, default='')
-    complemento = models.CharField(max_length=20, default='')
-    rua = models.CharField(max_length=50, default='')
-    numero = models.CharField(max_length=10, default='')
 
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
     is_active = models.BooleanField(_("active"), default=True)
