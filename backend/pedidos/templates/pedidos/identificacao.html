@@ -99,6 +99,7 @@
                                     {% endfor %}
                                 {% endif %}
                             </div>
+                            <div>
                                 <select id="estado" name="estado" >
                                     <option value="Selecione seu estado" selected disabled >Selecione seu estado</option>
                                     {% for option in form.estado %}
@@ -112,6 +113,7 @@
                                         </div>
                                     {% endfor %}
                                 {% endif %}
+                            </div>
                                 <div>
                                 <input type="text" name="cep" id="" placeholder="CEP" {% if form.cep.value %} value="{{form.cep.value}}" {% endif %} >
                                 {% if form.cep.errors %}
