@@ -249,7 +249,8 @@
 
     p{
         color: #2E332C;
-        margin: 20px 20px;
+        margin: 20px 2px;
+        font-size: 0.9rem;
     }
 }
 
