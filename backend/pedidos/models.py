@@ -2,7 +2,9 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from carrinho.models import Carrinho
+from django.core.validators import MinLengthValidator
 
+from .validators import REGEX_ENDERECO, REGEX_NUMERO_ENDERECO, REGEX_CEP
 
 user_model = get_user_model()
 
@@ -61,13 +63,13 @@ class Pedido(models.Model):
         ('TO', 'Tocantins'),
     )
 
-    cep = models.CharField(max_length=8, default='')
+    cep = models.CharField(max_length=8, default='', validators=[REGEX_CEP, MinLengthValidator(8)])
     estado = models.CharField(max_length=2, choices=ESTADO_CHOICES, default='')
-    cidade = models.CharField(max_length=50, default='')
-    bairro = models.CharField(max_length=50, default='')
-    complemento = models.CharField(max_length=20, default='')
-    rua = models.CharField(max_length=50, default='')
-    numero = models.CharField(max_length=10, default='')
+    cidade = models.CharField(max_length=50, default='', validators=[REGEX_ENDERECO])
+    bairro = models.CharField(max_length=50, default='', validators=[REGEX_ENDERECO])
+    complemento = models.CharField(max_length=20, default='', validators=[REGEX_ENDERECO])
+    rua = models.CharField(max_length=50, default='', validators=[REGEX_ENDERECO])
+    numero = models.CharField(max_length=10, default='', validators=[REGEX_NUMERO_ENDERECO])
 
     def __str__(self):
         return f'Pedido N°{self.id}'
