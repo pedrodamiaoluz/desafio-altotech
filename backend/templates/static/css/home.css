@@ -481,3 +481,7 @@ section.resultado {
     object-fit: cover;
 
 }
+
+.resultado__da_pesquisa form p {
+    font-size: 0.9rem;
+}
