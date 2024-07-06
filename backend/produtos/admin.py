@@ -1,7 +1,13 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 
-from produtos.models import Categoria, Ingrediente, Marca, Produto, SubCategoria
+from produtos.models import (
+    Categoria,
+    Ingrediente,
+    Marca,
+    Produto,
+    SubCategoria
+)
 
 # Register your models here.
 
@@ -27,12 +33,12 @@ class ProdutoAdmin(admin.ModelAdmin):
 
 
 class CategoriaAdmin(SummernoteModelAdmin):
-    summernote_fields = 'descricao',
+    summernote_fields = ('descricao',)
 
-    list_display = 'nome', 'slug',
+    list_display = 'nome', 'slug'
     list_display_links = 'nome', 'slug'
-    search_fields = 'nome',
-    ordering = 'nome',
+    search_fields = ('nome',)
+    ordering = ('nome',)
     list_per_page = 20
     prepopulated_fields = {
         'slug': ('nome', ),
@@ -40,14 +46,14 @@ class CategoriaAdmin(SummernoteModelAdmin):
 
 
 class SubCategoriaAdmin(SummernoteModelAdmin):
-    summernote_fields = 'descricao',
+    summernote_fields = ('descricao',)
 
-    list_display = 'nome', 'slug','destaque'
+    list_display = 'nome', 'slug', 'destaque'
     list_display_links = 'nome', 'slug'
-    list_filter = 'categoria',
-    search_fields = 'nome',
-    list_filter = 'destaque',
-    ordering = 'nome',
+    list_filter = ('categoria',)
+    search_fields = ('nome',)
+    list_filter = ('destaque',)
+    ordering = ('nome',)
     prepopulated_fields = {
         'slug': ('nome', ),
     }

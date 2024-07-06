@@ -22,7 +22,7 @@ class LoginView(View):
     def post(self, request,  *args, **kwargs):
         form = LoginForm(request.POST)
         if form.is_valid():
-            user = form.usuario_ehAutenticado()
+            user = form.usuario_eh_autenticado()
             if user:
                 login(request, user)
                 next = request.POST.get('next', None)
@@ -34,7 +34,7 @@ class LoginView(View):
         return render(request, self.template_name, {'form': form})
 
     def get(self, request,  *args, **kwargs):
-        context =  {
+        context = {
             'form': LoginForm(),
             'next': request.GET.get('next', None)
         }
@@ -72,12 +72,14 @@ class EsqueceuSenhaView(View):
         if form.is_valid():
             link = form.get_link_reset_password()
             Util.send_email_reset_password(form.user, link)
-            messages.success(request, 'Email enviar acesse o link para redefinir sua senha')
+            messages.success(
+                request, 'Email enviar acesse o link para redefinir sua senha')
             return redirect(reverse('usuarios:esqueceu_senha'))
         return render(request, self.template_name, {'form': form})
 
     def get(self, request,  *args, **kwargs):
-        return render(request, self.template_name, {'form': EnviarEmailResetSenhaForm()})
+        context = {'form': EnviarEmailResetSenhaForm()}
+        return render(request, self.template_name, context)
 
 
 class NovaSenhaView(View):
@@ -86,7 +88,7 @@ class NovaSenhaView(View):
     def get(self, request, uid, token, *args, **kwargs):
         if not Util.eh_valido_uid_token(uid, token):
             raise Http404("Acesso Negado")
-        context =  {
+        context = {
             'form': ChangePasswordSerializer(),
             'uid': uid,
             'token': token
@@ -102,7 +104,7 @@ class NovaSenhaView(View):
             user.set_password(form.data['senha'])
             user.save()
             return redirect(reverse('usuarios:login'))
-        context =  {
+        context = {
             'form': form,
             'uid': uid,
             'token': token

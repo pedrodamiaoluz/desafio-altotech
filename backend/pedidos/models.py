@@ -1,8 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
-from carrinho.models import Carrinho
 from django.core.validators import MinLengthValidator
+from carrinho.models import Carrinho
 
 from .validators import REGEX_ENDERECO, REGEX_NUMERO_ENDERECO, REGEX_CEP
 
@@ -63,24 +63,37 @@ class Pedido(models.Model):
         ('TO', 'Tocantins'),
     )
 
-    cep = models.CharField(max_length=8, default='', validators=[REGEX_CEP, MinLengthValidator(8)])
+    cep = models.CharField(max_length=8, default='', validators=[
+                           REGEX_CEP, MinLengthValidator(8)])
     estado = models.CharField(max_length=2, choices=ESTADO_CHOICES, default='')
-    cidade = models.CharField(max_length=50, default='', validators=[REGEX_ENDERECO])
-    bairro = models.CharField(max_length=50, default='', validators=[REGEX_ENDERECO])
-    complemento = models.CharField(max_length=20, default='', validators=[REGEX_ENDERECO])
-    rua = models.CharField(max_length=50, default='', validators=[REGEX_ENDERECO])
-    numero = models.CharField(max_length=10, default='', validators=[REGEX_NUMERO_ENDERECO])
+    cidade = models.CharField(
+        max_length=50, default='', validators=[REGEX_ENDERECO])
+    bairro = models.CharField(
+        max_length=50, default='', validators=[REGEX_ENDERECO])
+    complemento = models.CharField(
+        max_length=20, default='', validators=[REGEX_ENDERECO])
+    rua = models.CharField(max_length=50, default='',
+                           validators=[REGEX_ENDERECO])
+    numero = models.CharField(max_length=10, default='', validators=[
+                              REGEX_NUMERO_ENDERECO])
 
     def __str__(self):
+        """ Retorna a representação do objeto como uma string """
         return f'Pedido N°{self.id}'
 
     def get_absolute_url(self):
+        """ Retorna a URL de detalhe para o pedido """
         return reverse("pedidos:pedido_detalhe", kwargs={"pk": self.pk})
 
     @property
     def total(self):
-        return sum([item.produto.preco * item.quantidade for item in self.carrinho.itens.all()])
+        """ Retorna o valor total do pedido """
+        return sum([
+            item.produto.preco * item.quantidade
+            for item in self.carrinho.itens.all()
+        ])
 
     @property
     def quantidade(self):
+        """ Retorna a quantidade total de itens do pedido """
         return sum([item.quantidade for item in self.carrinho.itens.all()])

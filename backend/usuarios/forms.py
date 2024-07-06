@@ -9,6 +9,8 @@ user_model = get_user_model()
 
 
 class LoginForm(forms.Form):
+    """ Formulário de login do usuário """
+
     email = forms.CharField(
         max_length=255,
         widget=forms.TextInput(attrs={'placeholder': "E-mail"}))
@@ -18,14 +20,19 @@ class LoginForm(forms.Form):
                                 'placeholder': "Senha"
                             }))
 
-    def usuario_ehAutenticado(self):
+    def usuario_eh_autenticado(self) -> user_model | None:
+        """ Retorna o usuário se as credenciais forem válidas"""
+
         email = self.cleaned_data['email']
         senha = self.cleaned_data['senha']
+        #
         user = authenticate(email=email, password=senha)
         return user
 
 
 class UserForm(forms.ModelForm):
+    """ Formulário de cadastro do usuário """
+
     senha = forms.CharField(max_length=255, min_length=8,
                             widget=forms.TextInput(attrs={
                                 'type': "password",
@@ -37,11 +44,15 @@ class UserForm(forms.ModelForm):
         fields = ("nome_completo", 'cpf', 'data_nascimento', 'telefone',
                   'email', 'senha')
         widgets = {
-            'nome_completo': forms.TextInput(attrs={'placeholder': "Informe seu nome completo"}),
+            'nome_completo': forms.TextInput(
+                attrs={'placeholder': "Informe seu nome completo"}),
             'cpf': forms.TextInput(attrs={'placeholder': "000.000.000-00"}),
-            'telefone': forms.TextInput(attrs={'placeholder': "(DDD) 00000-0000"}),
-            'data_nascimento': forms.DateInput(attrs={'placeholder': "Informe sua data de nascimento"}),
-            'email': forms.EmailInput(attrs={'placeholder': "Exemplo@exemplo.com"}),
+            'telefone': forms.TextInput(
+                attrs={'placeholder': "(DDD) 00000-0000"}),
+            'data_nascimento': forms.DateInput(
+                attrs={'placeholder': "Informe sua data de nascimento"}),
+            'email': forms.EmailInput(
+                attrs={'placeholder': "Exemplo@exemplo.com"}),
         }
 
     def save(self, **kwargs):
@@ -52,6 +63,12 @@ class UserForm(forms.ModelForm):
 
 
 class EnviarEmailResetSenhaForm(forms.Form):
+    """ Formulário de envio de email para reset de senha """
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.user = None
+
     email_ou_cpf = forms.CharField(max_length=255, label="E-mail ou cpf",
                                    widget=forms.TextInput(attrs={
                                        'placeholder': "E-mail ou cpf",
@@ -72,8 +89,6 @@ class EnviarEmailResetSenhaForm(forms.Form):
         if '@' not in email_ou_cpf and not regex_cpf.match(email_ou_cpf):
             raise forms.ValidationError("credencial inválida")
 
-        self.user = None
-
         if user_model.objects.filter(email=email_ou_cpf).exists():
             self.user = user_model.objects.get(email=email_ou_cpf)
 
@@ -90,6 +105,8 @@ class EnviarEmailResetSenhaForm(forms.Form):
 
 
 class ChangePasswordSerializer(forms.Form):
+    """ Formulário de alteração de senha """
+
     senha = forms.CharField(
         min_length=8,
         max_length=255, label="Informe a nova senha",

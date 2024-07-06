@@ -18,6 +18,9 @@ from usuarios.validators import (
 
 # Create your models here.
 
+# customizado o usuário do django para adicionar mais campos e definir outro
+# modo de fazer login
+
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('endereço de email'),
@@ -62,13 +65,18 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
             "Designates whether the user can log into this admin site."),
     )
 
+    # Manager personalisado para usar a senha como username
     objects = CustomUserManager()
 
+    # Configurando o email que seja usado pra fazer login no sistema
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
+    # troquei o campo is_staff por is_admin porém o django usa este campo estão
+    # criei esta property.
     @property
     def is_staff(self):
+        """ Retorna se o usuário é um administrador """
         return self.is_admin
 
     class Meta:
@@ -76,7 +84,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _("users")
 
     def __str__(self):
-        return self.email
+        """ Retorna a representação do objeto como String """
+        return str(self.email)
 
     def email_user(self, subject, message, from_email=None, **kwargs):
         """Send an email to this user."""

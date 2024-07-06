@@ -15,6 +15,10 @@ user_model = get_user_model()
 
 
 def valida_valor(valor, mensagem_erro, padrao_regex):
+    """
+        Retorna o valor ou lança ValidationError se não dê match com o
+        regex passado
+    """
     regex = re.compile(padrao_regex, re.I)
     if not regex.match(valor):
         raise forms.ValidationError(mensagem_erro)
@@ -44,6 +48,10 @@ class ContateNosForm(forms.Form):
         return valida_valor(data, "Telefone inválido", PADRA_REGEX_TELEFONE)
 
     def send_email_admins(self):
+        """
+            Envia as informações do formulário de contate nos para
+            os administradores.
+        """
         cleaned_data = self.cleaned_data
 
         message = render_to_string("pages/email/contate_nos.txt",

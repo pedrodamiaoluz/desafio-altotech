@@ -5,6 +5,8 @@ from PIL import Image
 
 
 def redimencionar_imagem(img, nova_largura=800):
+    """ redimenciona a imagem para o tamanho desejado """
+
     imagem_caminho_completo = os.path.join(settings.MEDIA_ROOT, img.name)
 
     img_pil = Image.open(imagem_caminho_completo)

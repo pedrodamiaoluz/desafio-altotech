@@ -12,6 +12,7 @@ user_model = get_user_model()
 class ManagerCarrinho(Manager):
 
     def get_or_create(self, user):
+        """ Retorna o carrinho do usuário ou cria um novo """
         qs_carrinho = self.get_queryset().filter(user=user, ativado=True)
         if qs_carrinho.exists():
             return qs_carrinho.first()
@@ -25,15 +26,20 @@ class Carrinho(models.Model):
     objects = ManagerCarrinho()
 
     def __str__(self):
+        """ Retorna a representação do objeto como String """
         return f"Carrinho do usuario: {self.user.nome_completo}"
+
     @property
     def total(self):
+        """ Retorna o preço total dos itens do carrinho """
         return sum([item.total for item in self.itens.all()])
 
 
 class ItemProduto(models.Model):
-    carrinho = models.ForeignKey(Carrinho, on_delete=models.CASCADE, related_name='itens', null=True)
-    produto = models.ForeignKey(Produto, on_delete=models.CASCADE, related_name='carrinho_itens')
+    carrinho = models.ForeignKey(
+        Carrinho, on_delete=models.CASCADE, related_name='itens', null=True)
+    produto = models.ForeignKey(
+        Produto, on_delete=models.CASCADE, related_name='carrinho_itens')
     quantidade = models.PositiveIntegerField(default=1)
 
     def __str__(self):
@@ -41,4 +47,5 @@ class ItemProduto(models.Model):
 
     @property
     def total(self):
+        """ Retorna o preço total do produto """
         return self.produto.preco * self.quantidade

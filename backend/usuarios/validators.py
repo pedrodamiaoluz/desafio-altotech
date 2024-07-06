@@ -4,16 +4,19 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 from django.core.exceptions import ValidationError
 
-# PADRA_REGEX_LETRAS = r"(^[a-zá-ú]{2,})(((\s[a-zá-ú]{2,})+)?)[^\s]$"
+
 PADRA_REGEX_LETRAS = r"^[a-zá-ú\s]{2,}$"
-PADRA_REGEX_TELEFONE = r"^(\(\d{2}\)[\s][9]?\d{4}[-]\d{4})|(\d{2}[\s]?[9]?\d{4}\d{4})$"
+PADRA_REGEX_TELEFONE = (
+    r"^(\(\d{2}\)[\s][9]?\d{4}[-]\d{4})|(\d{2}[\s]?[9]?\d{4}\d{4})$"
+)
 PADRA_REGEX_CPF = r"^\d{3}\.\d{3}\.\d{3}\-\d{2}$"
 PADRA_REGEX_EMAIL = r"^[a-z0-9._]+@[a-z]+\.com$"
 
 
 def eh_de_maior(data_nascimento):
-    idade = relativedelta(date.today(), data_nascimento).years
+    """ válida se o usuário tem a idade maior ou igual a 18 anos """
 
+    idade = relativedelta(date.today(), data_nascimento).years
     if idade < 18:
         raise ValidationError(
             "Data de nascimento inválida, o usuário tem que ser maior de idade"
@@ -22,13 +25,16 @@ def eh_de_maior(data_nascimento):
 
 
 def eh_valido_cpf(value):
+    """ válida o CPF do usuário com o cálculo do mesmo """
+
     cpf = str(value)  # trasnforma o valor em String
     cpf = re.sub(r'[^0-9]', '',
                  cpf)  # remove qualquer caracter que não seja numero
 
     if not cpf or len(
             cpf
-    ) != 11:  # se o cpf não for informado ou se ele não tiver 11 digitos numericos é levantado exeção de validação
+    ) != 11:  # se o cpf não for informado ou se ele não tiver 11 digitos
+        # numericos é levantado exeção de validação
         raise ValidationError('Digite um cpf valido')
 
     novo_cpf = cpf[:-2]  # pega os 9 primeiros digitos do cpf
@@ -37,7 +43,8 @@ def eh_valido_cpf(value):
 
     for index in range(
             19
-    ):  # laço para soma os primeiros 9 e depois 10 digitos para descobrir os digitos 10 e 11
+    ):  # laço para soma os primeiros 9 e depois 10 digitos para descobrir os
+        # digitos 10 e 11
         if index > 8:  # index para descobrir o 10 digito
             index -= 9  # index para descobrir o 11 digito
 

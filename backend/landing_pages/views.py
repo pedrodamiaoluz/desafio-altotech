@@ -21,6 +21,7 @@ class ContateNosView(View):
     def post(self, request, *args, **kwargs):
         form = ContateNosForm(request.POST)
         if form.is_valid():
+            # envia as informações do formulário de contato para os admins
             form.send_email_admins()
             messages.success(request, "Suas ideias foram enviadas")
             return redirect(reverse("landing_pages:contate_nos"))

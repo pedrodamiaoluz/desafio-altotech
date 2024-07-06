@@ -24,8 +24,12 @@ class Categoria(models.Model):
 
     descricao = models.TextField(default='')
 
+    class Meta:
+        ordering = ['nome']
+
     def __str__(self):
-        return self.nome
+        """ Retorna a representação do objeto como String """
+        return str(self.nome)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -38,6 +42,7 @@ class Categoria(models.Model):
             redimencionar_imagem(self.imagem_categorias, nova_largura)
 
     def get_absolute_url(self):
+        """ Retorna a url de detalhe da categoria """
         return reverse('produtos:categoria', args=[self.slug])
 
 
@@ -46,34 +51,54 @@ class SubCategoria(models.Model):
     slug = models.SlugField(max_length=50, unique=True, null=True)
     destaque = models.BooleanField(
         default=False,
-        help_text=
-        'Destina a categoria que ficará em exibição na home page. obs: se mais de uma categoria for destinada para ser destaque, a categoria escolhida será feita por ordem alfabetica'
+        help_text=(
+            'Destina a categoria que ficará em exibição na home page. '
+            'obs: se mais de uma categoria for destinada para ser destaque, '
+            'a categoria escolhida será feita por ordem alfabetica'
+        )
     )
     categoria = models.ForeignKey(Categoria,
-                           on_delete=models.CASCADE,
-                           related_name='sub_categorias')
+                                  on_delete=models.CASCADE,
+                                  related_name='sub_categorias')
 
     descricao = models.TextField(default='')
 
+    class Meta:
+        ordering = ['nome']
+
     def __str__(self):
-        return self.nome
+        """ Retorna a representação do objeto como String """
+        return str(self.nome)
 
     def get_absolute_url(self):
-        return reverse('produtos:sub_categoria', args=[self.categoria.slug, self.slug])
+        """ Retorna a url de detalhe da subcategoria """
+        kwargs = {
+            'categoria_slug': self.categoria.slug,
+            'sub_categoria_slug': self.slug
+        }
+        return reverse('produtos:sub_categoria', kwargs=kwargs)
 
 
 class Ingrediente(models.Model):
     nome = models.CharField(max_length=255, unique=True)
 
+    class Meta:
+        ordering = ['nome']
+
     def __str__(self):
-        return self.nome
+        """ Retorna a representação do objeto como String """
+        return str(self.nome)
 
 
 class Marca(models.Model):
     nome = models.CharField(max_length=255, unique=True)
 
+    class Meta:
+        ordering = ['nome']
+
     def __str__(self):
-        return self.nome
+        """ Retorna a representação do objeto como String """
+        return str(self.nome)
 
 
 class Produto(models.Model):
@@ -86,8 +111,11 @@ class Produto(models.Model):
     imagem = models.ImageField(upload_to='produto_imagem/%Y/%m',
                                null=True,
                                blank=True)
-    
+
     objects = ProdutoManager()
+
+    class Meta:
+        ordering = ['nome']
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -97,4 +125,5 @@ class Produto(models.Model):
             redimencionar_imagem(self.imagem, nova_largura)
 
     def __str__(self):
-        return self.nome
+        """ Retorna a representação do objeto como String """
+        return str(self.nome)
