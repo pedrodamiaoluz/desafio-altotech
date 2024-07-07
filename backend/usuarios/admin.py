@@ -22,17 +22,6 @@ class CustomUserAdmin(UserAdmin):
                 'telefone',
             )
         }),
-        (_("Endereço"), {
-            'fields': (
-                'cep',
-                'estado',
-                'cidade',
-                'bairro',
-                'complemento',
-                'rua',
-                'numero',
-            )
-        }),
         (_('Permissões'), {
             'fields': (
                 'is_active',
