@@ -50,7 +50,7 @@ Este ecommerce foi desenvolvido com o framework django.
 ## Configurações
  * Envio de emails:
 
-    caso debug seja False os emails de reset passowrd e contate nos irão aparecer no terminal.
+    caso debug seja True os emails de reset passowrd e contate nos irão aparecer no terminal.
     ~~~python
     if DEBUG: 
         EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" # printa os emails no console
