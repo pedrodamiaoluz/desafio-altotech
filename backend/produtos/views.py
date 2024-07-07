@@ -113,7 +113,7 @@ class SubCategoriaListView(ListView):
 
     def get(self, request, *args, **kwargs):
 
-        filtro_queryset = None
+        filtro_queryset = Q()
 
         # pegando os valores dos checkboxes para filtrar os produtos
         filtro_categorias = request.GET.getlist('categorias', None)
@@ -124,7 +124,7 @@ class SubCategoriaListView(ListView):
             filtro_categorias)
         if filtro_categorias:
             # adicionando a filtragem por categoria na variável de filtro
-            filtro_queryset = Q(categorias__id__in=filtro_categorias)
+            filtro_queryset &= Q(categorias__id__in=filtro_categorias)
             self.get_paramentros_para_juntar_com_a_paginacao(
                 categorias=filtro_categorias)
 
@@ -143,10 +143,11 @@ class SubCategoriaListView(ListView):
             self.get_paramentros_para_juntar_com_a_paginacao(
                 marcas=filtro_marcas)
 
-        if filtro_queryset:
-            produtos = self.get_queryset().filter(filtro_queryset)
-            context = self.get_context_data(object_list=produtos)
+        produtos = self.get_queryset()
 
+        if filtro_queryset:
+            produtos = produtos.filter(filtro_queryset)
+            context = self.get_context_data(object_list=produtos)
             context.update({
                 'filtro_categorias':
                 filtro_categorias,
@@ -157,6 +158,8 @@ class SubCategoriaListView(ListView):
                 'url_filtro_com_paginacao':
                 self.url_filtro
             })
+        else:
+            context = self.get_context_data(object_list=produtos)
 
         return render(request, self.template_name, context)
 
