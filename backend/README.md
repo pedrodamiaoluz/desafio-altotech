@@ -69,3 +69,101 @@ Este ecommerce foi desenvolvido com o framework django.
     EMAIL_HOST_USER = "seu endereço de email"
     EMAIL_HOST_PASSWORD = "sua senha do email"
     ~~~
+
+## Diagrama  de classes
+
+```mermaid
+---
+title: Diagrama de clases
+---
+
+classDiagram
+  direction RL
+  
+    Pedido "1" -- "1" Carrinho
+    Usuario "1" -- "0..n" Pedido
+    Carrinho "1" -- "n" ItemProduto
+    Carrinho "0..n" -- "1" Usuario
+    ItemProduto "n" -- "1" Produto
+
+    Produto "*" -- "*" Ingrediente
+    Produto "0..n" -- "1" Marca
+    Produto "*" -- "*" SubCategoria
+
+    SubCategoria "0..n" -- "1" Categoria
+
+
+  class Usuario{
+      +String nome_completo
+      +String cpf
+      +String email
+      +String telefone
+      +String data_nascimento
+      +bool is_admin
+      +__str__()
+      +total()
+  }
+  class Carrinho{
+    +bool ativado
+    +__str__()
+  }
+
+  class ItemProduto{
+    +int quantidade
+    +__str__()
+    +total()
+  }
+
+  class Categoria {
+    +String nome
+    +String slug
+    +img imagem_principal
+    +img imagem_categorias
+    +String descricao
+    +__str__()
+    +get_absolute_url()
+  }
+
+  class SubCategoria {
+    +String nome
+    +String slug
+    +bool destaque
+    +String descricao
+    +__str__()
+    +get_absolute_url()
+  }
+
+  class Ingrediente {
+    +String nome
+    +__str__()
+  }
+
+  class Marca {
+    +String nome
+    +__str__()
+  }
+
+  class Produto {
+    +String nome
+    +float preco
+    +int estoque
+    +img imagem
+    +__str__()
+  }
+
+  class Pedido {
+    +String status
+    +date data_criacao
+    +String cep
+    +String estado
+    +String cidade
+    +String bairro
+    +String complemento
+    +String rua
+    +String numero
+    +__str__()
+    +get_absolute_url()
+    +total()
+    +quantidade()
+  }
+```
