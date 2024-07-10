@@ -29,9 +29,17 @@ SECRET_KEY = "django-insecure-ala4mh_g0#0cv!85&^^t&9(9vw#x*8nqm&-+-e2sc#pz4lis6t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", ".versel.app"]
 
-CSRF_TRUSTED_ORIGINS = ['https://localhost:8000']
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost:8000',
+    "https://*.versel.app",
+    ]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
 
 # Application definition
 
@@ -50,6 +58,7 @@ INSTALLED_APPS = [
     'carrinho',
     'landing_pages',
 
+    # bibliotecas
     'django_summernote',
 ]
 
@@ -137,14 +146,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "templates/static")]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# django mensagem 
+# django mensagem
 
 MESSAGE_TAGS = {
     constants.DEBUG: 'alert-info',

@@ -1,3 +1,12 @@
 {
-    "liveServer.settings.port": 5504
+    "liveServer.settings.port": 5504,
+    "explorer.compactFolders": false,
+    "files.autoSave": "off",
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        80
+    ],
+    "editor.renderWhitespace": "all",
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.aI.enableCodebaseIndexing": true,
 }
