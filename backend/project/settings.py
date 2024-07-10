@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ["127.0.0.1", ".versel.app"]
 CSRF_TRUSTED_ORIGINS = [
     'https://localhost:8000',
     "https://*.versel.app",
-    ]
+]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
@@ -103,12 +103,12 @@ WSGI_APPLICATION = "project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
 
 # Password validation
